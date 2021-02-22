@@ -8,40 +8,45 @@
 import UIKit
 
 class MyBagTableViewController: UITableViewController {
-
+    
+    static let shared = MyBagTableViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        Bag.shared.loadFromPersistenceStore()
     }
     
-    //  MARK: - Properties
-    static var bag: [[String]] = [[]]
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
-    }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        if Bag.shared.myBag.count == 0 {
+            return 0
+        } else {
+            return Bag.shared.myBag.count
+        }
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "baggedDiscCell", for: indexPath)
 
-        // Configure the cell...
-
+        cell.textLabel?.text = Bag.shared.myBag[indexPath.row].model
+        cell.detailTextLabel?.text = Bag.shared.myBag[indexPath.row].make
+            
         return cell
     }
-
-
+    
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            Bag.shared.removeDiscFromBag(index: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-
+    
 }

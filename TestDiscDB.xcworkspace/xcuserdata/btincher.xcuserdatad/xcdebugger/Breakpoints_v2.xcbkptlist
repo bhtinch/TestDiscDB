@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "0C871708-3EAB-4A87-B68B-65225D4F2008"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B02F25E2-C02E-44B0-BC6A-14C3B3B8C38C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TestDiscDB/View Controllers/DiscListTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "getDiscList(searchTerm:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "20B4855E-7749-4AEC-8540-32911D803709"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TestDiscDB/View Controllers/DiscListTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "getDiscList(searchTerm:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "20B4855E-7749-4AEC-8540-32911D803709 - 201548f14b23d565"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in TestDiscDB.DiscListTableViewController.getDiscList(searchTerm: Swift.String) -&gt; ()"
+                  moduleName = "TestDiscDB"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/btincher/Documents/DevMountain%20iOS38/Bag%20O&apos;%20Discs/Test%20Projects/TestDiscDB/TestDiscDB/View%20Controllers/DiscListTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  uuid = "20B4855E-7749-4AEC-8540-32911D803709 - b0f72857055bf7cf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.FIRDataSnapshot) -&gt; () in closure #1 () -&gt; () in TestDiscDB.DiscListTableViewController.getDiscList(searchTerm: Swift.String) -&gt; ()"
+                  moduleName = "TestDiscDB"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/btincher/Documents/DevMountain%20iOS38/Bag%20O&apos;%20Discs/Test%20Projects/TestDiscDB/TestDiscDB/View%20Controllers/DiscListTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "32"
+                  endingLineNumber = "32"
+                  offsetFromSymbolStart = "192">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
