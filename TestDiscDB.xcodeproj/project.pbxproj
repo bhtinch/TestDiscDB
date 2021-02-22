@@ -3,17 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		620B40E325E42347002C355A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620B40E225E42347002C355A /* AppDelegate.swift */; };
 		620B40E525E42347002C355A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620B40E425E42347002C355A /* SceneDelegate.swift */; };
-		620B40E725E42347002C355A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620B40E625E42347002C355A /* ViewController.swift */; };
 		620B40EA25E42347002C355A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 620B40E825E42347002C355A /* Main.storyboard */; };
 		620B40EC25E42347002C355A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 620B40EB25E42347002C355A /* Assets.xcassets */; };
 		620B40EF25E42347002C355A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 620B40ED25E42347002C355A /* LaunchScreen.storyboard */; };
 		620B40F825E42463002C355A /* GoogleService-Info (1).plist in Resources */ = {isa = PBXBuildFile; fileRef = 620B40F725E42463002C355A /* GoogleService-Info (1).plist */; };
+		620B412525E433EB002C355A /* MyBagTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620B412425E433EB002C355A /* MyBagTableViewController.swift */; };
+		620B412825E433F3002C355A /* DiscListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620B412725E433F3002C355A /* DiscListTableViewController.swift */; };
 		F2EEF7F75F2BA008697C9536 /* Pods_TestDiscDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF18FF6E94B306B33AD730D4 /* Pods_TestDiscDB.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,12 +24,13 @@
 		620B40DF25E42347002C355A /* TestDiscDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestDiscDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		620B40E225E42347002C355A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		620B40E425E42347002C355A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		620B40E625E42347002C355A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		620B40E925E42347002C355A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		620B40EB25E42347002C355A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		620B40EE25E42347002C355A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		620B40F025E42347002C355A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		620B40F725E42463002C355A /* GoogleService-Info (1).plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info (1).plist"; sourceTree = "<group>"; };
+		620B412425E433EB002C355A /* MyBagTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBagTableViewController.swift; sourceTree = "<group>"; };
+		620B412725E433F3002C355A /* DiscListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscListTableViewController.swift; sourceTree = "<group>"; };
 		FF18FF6E94B306B33AD730D4 /* Pods_TestDiscDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestDiscDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -58,7 +60,6 @@
 				4380560ABF46D5C21CAE42FB /* Pods-TestDiscDB.debug.xcconfig */,
 				2647F9E1CB1A600EB6E9ADDF /* Pods-TestDiscDB.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,16 +84,41 @@
 		620B40E125E42347002C355A /* TestDiscDB */ = {
 			isa = PBXGroup;
 			children = (
-				620B40E225E42347002C355A /* AppDelegate.swift */,
-				620B40E425E42347002C355A /* SceneDelegate.swift */,
-				620B40E625E42347002C355A /* ViewController.swift */,
-				620B40E825E42347002C355A /* Main.storyboard */,
-				620B40EB25E42347002C355A /* Assets.xcassets */,
-				620B40ED25E42347002C355A /* LaunchScreen.storyboard */,
+				620B411E25E428F6002C355A /* Resources */,
+				620B412125E42915002C355A /* View Controllers */,
+				620B412025E4290A002C355A /* Storyboards */,
 				620B40F725E42463002C355A /* GoogleService-Info (1).plist */,
 				620B40F025E42347002C355A /* Info.plist */,
 			);
 			path = TestDiscDB;
+			sourceTree = "<group>";
+		};
+		620B411E25E428F6002C355A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				620B40E225E42347002C355A /* AppDelegate.swift */,
+				620B40E425E42347002C355A /* SceneDelegate.swift */,
+				620B40EB25E42347002C355A /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		620B412025E4290A002C355A /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				620B40E825E42347002C355A /* Main.storyboard */,
+				620B40ED25E42347002C355A /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		620B412125E42915002C355A /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				620B412425E433EB002C355A /* MyBagTableViewController.swift */,
+				620B412725E433F3002C355A /* DiscListTableViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,8 +236,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				620B40E725E42347002C355A /* ViewController.swift in Sources */,
 				620B40E325E42347002C355A /* AppDelegate.swift in Sources */,
+				620B412525E433EB002C355A /* MyBagTableViewController.swift in Sources */,
+				620B412825E433F3002C355A /* DiscListTableViewController.swift in Sources */,
 				620B40E525E42347002C355A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
