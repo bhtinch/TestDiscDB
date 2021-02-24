@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2B02B3E9-47CF-4A63-BBB6-D64884F2E600"
-            shouldBeEnabled = "Yes"
+            uuid = "46B8A7EA-6EF0-478E-A660-EEC15A2F030F"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TestDiscDB/View Controllers/DiscListTableViewController.swift"
+            filePath = "TestDiscDB/Model Controller/LocalDatabase.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"
             endingLineNumber = "27"
-            landmarkName = "getDiscList()"
+            landmarkName = "syncDatabase(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

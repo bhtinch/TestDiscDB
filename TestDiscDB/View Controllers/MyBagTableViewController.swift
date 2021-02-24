@@ -40,8 +40,6 @@ class MyBagTableViewController: UITableViewController {
         return cell
     }
     
-    
-    // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             Bag.shared.removeDiscFromBag(index: indexPath.row)
@@ -49,4 +47,12 @@ class MyBagTableViewController: UITableViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDiscDetailVC" {
+            guard let indexPath = tableView.indexPathForSelectedRow,
+                  let destination = segue.destination as? DiscDetailViewController else { return }
+                  let disc = Bag.shared.myBag[indexPath.row]
+            destination.selectedDisc = disc
+        }
+    }
 }

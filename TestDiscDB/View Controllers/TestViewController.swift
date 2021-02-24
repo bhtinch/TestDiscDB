@@ -21,7 +21,7 @@ class TestViewController: UIViewController {
     
     func doStuff() {
         database.getData { (error, snap) in
-            print(snap.value)
+            print(snap)
         }
     }
 }

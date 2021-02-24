@@ -12,27 +12,23 @@ class Bag {
     
     var myBag: [Disc] = []
     
-    func addDiscToBagWith(make: String, model: String) {
-        let disc = Disc(model: model, make: make)
+    func addDiscToBagWith(disc: Disc) {
         myBag.append(disc)
-        saveToPersistenceStore()
+        self.saveToPersistenceStore()
     }
     
     func removeDiscFromBag(index: Int) {
         myBag.remove(at: index)
-        saveToPersistenceStore()
+        self.saveToPersistenceStore()
     }
     
     //  MARK: - Persistence
-    
-    //  fileURL
     func fileURL() -> URL {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let fileURL = urls[0].appendingPathComponent("Bag.json")
         return fileURL
     }
     
-    //  save
     func saveToPersistenceStore() {
         do {
             let data = try JSONEncoder().encode(myBag)
@@ -43,7 +39,6 @@ class Bag {
         }
     }
     
-    //  load
     func loadFromPersistenceStore() {
         do {
             let data = try Data(contentsOf: fileURL())
