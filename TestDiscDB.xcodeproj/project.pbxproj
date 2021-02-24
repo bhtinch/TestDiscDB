@@ -17,6 +17,8 @@
 		620B412825E433F3002C355A /* DiscListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620B412725E433F3002C355A /* DiscListTableViewController.swift */; };
 		620B413125E47747002C355A /* Disc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620B413025E47747002C355A /* Disc.swift */; };
 		620B413525E47790002C355A /* Bag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620B413425E47790002C355A /* Bag.swift */; };
+		625C684425E599730008FE2D /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C684325E599730008FE2D /* TestViewController.swift */; };
+		625C684725E605310008FE2D /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C684625E605310008FE2D /* DatabaseManager.swift */; };
 		F2EEF7F75F2BA008697C9536 /* Pods_TestDiscDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF18FF6E94B306B33AD730D4 /* Pods_TestDiscDB.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,8 @@
 		620B412725E433F3002C355A /* DiscListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscListTableViewController.swift; sourceTree = "<group>"; };
 		620B413025E47747002C355A /* Disc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disc.swift; sourceTree = "<group>"; };
 		620B413425E47790002C355A /* Bag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bag.swift; sourceTree = "<group>"; };
+		625C684325E599730008FE2D /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		625C684625E605310008FE2D /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		FF18FF6E94B306B33AD730D4 /* Pods_TestDiscDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestDiscDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -123,6 +127,7 @@
 			children = (
 				620B412425E433EB002C355A /* MyBagTableViewController.swift */,
 				620B412725E433F3002C355A /* DiscListTableViewController.swift */,
+				625C684325E599730008FE2D /* TestViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				620B413425E47790002C355A /* Bag.swift */,
+				625C684625E605310008FE2D /* DatabaseManager.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -258,6 +264,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				625C684725E605310008FE2D /* DatabaseManager.swift in Sources */,
+				625C684425E599730008FE2D /* TestViewController.swift in Sources */,
 				620B40E325E42347002C355A /* AppDelegate.swift in Sources */,
 				620B413125E47747002C355A /* Disc.swift in Sources */,
 				620B412525E433EB002C355A /* MyBagTableViewController.swift in Sources */,

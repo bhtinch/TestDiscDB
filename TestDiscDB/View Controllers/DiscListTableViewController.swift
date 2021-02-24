@@ -19,34 +19,41 @@ class DiscListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
+        
+        getDiscList()
     }
     
     //  MARK: - Methods
-    func getDiscList(searchTerm: String) {
-        print("Seraching for \"\(searchTerm)\"...")
-        discList = []
-        filteredDiscList = []
-        
+    func getDiscList() {
+
         DispatchQueue.main.async {
             self.database.observeSingleEvent(of: .value) { (snapshot) in
                 for index in 0..<snapshot.childrenCount {
-                    
+
                     var disc: [String] = []
-                    
+
                     let make = snapshot.childSnapshot(forPath: "\(index)").childSnapshot(forPath: "Manufacturer Or Distributor").value as? String ?? ""
                     let model = snapshot.childSnapshot(forPath: "\(index)").childSnapshot(forPath: "Disc Model").value as? String ?? ""
-                    
+
                     disc = [make, model]
                     self.discList.append(disc)
                 }
-                for disc in self.discList {
-                    if disc[0].localizedCaseInsensitiveContains(searchTerm) || disc[1].localizedCaseInsensitiveContains(searchTerm) {
-                        self.filteredDiscList.append(disc)
-                    }
-                }
-                print(self.filteredDiscList)
-                self.tableView.reloadData()
             }
+        }
+    }
+    
+    func filterDiscList(searchTerm: String) {
+        print("Seraching for \"\(searchTerm)\"...")
+        filteredDiscList = []
+        
+        DispatchQueue.main.async {
+            
+            for disc in self.discList {
+                if disc[0].localizedCaseInsensitiveContains(searchTerm) || disc[1].localizedCaseInsensitiveContains(searchTerm) {
+                    self.filteredDiscList.append(disc)
+                }
+            }
+            self.tableView.reloadData()
         }
     }
     
@@ -73,7 +80,6 @@ class DiscListTableViewController: UITableViewController {
         let addAction = UIAlertAction(title: "Bag it!", style: .default) { (_) in
             print("bagged")
             Bag.shared.addDiscToBagWith(make: disc[0], model: disc[1])
-            self.navigationController?.popViewController(animated: true)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
             self.dismiss(animated: true, completion: nil)
@@ -91,7 +97,7 @@ extension DiscListTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print("Search button tapped...")
         guard let searchTerm = searchBar.text?.lowercased() else { return }
-        self.getDiscList(searchTerm: searchTerm)
+        self.filterDiscList(searchTerm: searchTerm)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
