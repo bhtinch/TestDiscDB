@@ -117,10 +117,27 @@
                     <view key="view" contentMode="scaleToFill" id="QbV-od-Sq5">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T45-sX-OtA">
+                                <rect key="frame" x="24" y="702" width="342" height="30"/>
+                                <state key="normal" title="Check It Out On InfiniteDiscs.com"/>
+                                <connections>
+                                    <action selector="linkButtonTapped:" destination="hPB-RG-cIZ" eventType="touchUpInside" id="cVQ-xT-ZD6"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="uJW-cR-kI9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uJW-cR-kI9" firstAttribute="trailing" secondItem="T45-sX-OtA" secondAttribute="trailing" constant="24" id="P4k-0z-WsJ"/>
+                            <constraint firstItem="T45-sX-OtA" firstAttribute="leading" secondItem="uJW-cR-kI9" secondAttribute="leading" constant="24" id="UKZ-Bo-JJV"/>
+                            <constraint firstItem="uJW-cR-kI9" firstAttribute="bottom" secondItem="T45-sX-OtA" secondAttribute="bottom" constant="24" id="Y3g-0f-TRw"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4Ae-f4-SNf"/>
+                    <connections>
+                        <outlet property="linkButton" destination="T45-sX-OtA" id="ebT-St-Y9X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vLr-FA-Wvb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
