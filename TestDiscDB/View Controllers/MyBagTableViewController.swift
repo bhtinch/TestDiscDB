@@ -4,7 +4,7 @@
 //
 //  Created by Benjamin Tincher on 2/22/21.
 //
-
+import FirebaseAuth
 import UIKit
 
 class MyBagTableViewController: UITableViewController {
@@ -19,6 +19,34 @@ class MyBagTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        handleNotAuthenticated()
+    }
+    
+    //  MARK: - Actions
+    @IBAction func logOutButtonTapped(_ sender: Any) {
+        AuthManager.shared.logoutUser { (loggedOut) in
+            if loggedOut {
+                print("firebase user logged out")
+                self.handleNotAuthenticated()
+            } else {
+                print("firebase user could not be logged out.")
+            }
+        }
+    }
+    
+    
+    //  MARK: - Methods
+    func handleNotAuthenticated() {
+        if Auth.auth().currentUser == nil {
+            let loginVC = LoginViewController()
+            loginVC.modalPresentationStyle = .fullScreen
+            present(loginVC, animated: false)
+        }
     }
     
     // MARK: - Table view data source

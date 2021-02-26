@@ -51,6 +51,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Bag" id="sx0-za-kZR">
+                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="3bk-R8-IgX">
+                            <connections>
+                                <action selector="logOutButtonTapped:" destination="MGs-fg-XgC" id="z9b-Gk-Zgm"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="gxR-9m-yDn">
                             <connections>
                                 <segue destination="duL-p5-GUP" kind="show" identifier="toDiscListVC" id="8In-lz-gBP"/>
@@ -61,38 +66,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PgC-zp-jWQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="71" y="100"/>
-        </scene>
-        <!--Test View Controller-->
-        <scene sceneID="Vr4-ff-dJ5">
-            <objects>
-                <viewController id="HKe-PP-aRl" customClass="TestViewController" customModule="TestDiscDB" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="jzV-eG-aru">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kM6-vU-iLz">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="G27-WN-FHi"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="kM6-vU-iLz" firstAttribute="leading" secondItem="G27-WN-FHi" secondAttribute="leading" id="VOd-oP-7gw"/>
-                            <constraint firstItem="G27-WN-FHi" firstAttribute="trailing" secondItem="kM6-vU-iLz" secondAttribute="trailing" id="Y0y-zt-a0J"/>
-                            <constraint firstItem="G27-WN-FHi" firstAttribute="bottom" secondItem="kM6-vU-iLz" secondAttribute="bottom" id="Yf4-eQ-SAo"/>
-                            <constraint firstItem="kM6-vU-iLz" firstAttribute="top" secondItem="G27-WN-FHi" secondAttribute="top" id="x9k-6e-O6b"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="label" destination="kM6-vU-iLz" id="jhq-T2-12e"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="srz-6w-EYf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-662" y="-621"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xE5-Eo-b8W">
@@ -125,13 +98,27 @@
                                     <action selector="linkButtonTapped:" destination="hPB-RG-cIZ" eventType="touchUpInside" id="cVQ-xT-ZD6"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zhx-19-GVy">
+                                <rect key="frame" x="24" y="638" width="342" height="40"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <state key="normal" title="Bag it!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="bagItButtonTapped:" destination="hPB-RG-cIZ" eventType="touchUpInside" id="yeD-Pe-ij6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uJW-cR-kI9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="uJW-cR-kI9" firstAttribute="trailing" secondItem="T45-sX-OtA" secondAttribute="trailing" constant="24" id="P4k-0z-WsJ"/>
                             <constraint firstItem="T45-sX-OtA" firstAttribute="leading" secondItem="uJW-cR-kI9" secondAttribute="leading" constant="24" id="UKZ-Bo-JJV"/>
+                            <constraint firstItem="T45-sX-OtA" firstAttribute="top" secondItem="Zhx-19-GVy" secondAttribute="bottom" constant="24" id="Uds-XB-X5f"/>
+                            <constraint firstItem="Zhx-19-GVy" firstAttribute="leading" secondItem="uJW-cR-kI9" secondAttribute="leading" constant="24" id="Wjx-4D-SBe"/>
                             <constraint firstItem="uJW-cR-kI9" firstAttribute="bottom" secondItem="T45-sX-OtA" secondAttribute="bottom" constant="24" id="Y3g-0f-TRw"/>
+                            <constraint firstItem="uJW-cR-kI9" firstAttribute="trailing" secondItem="Zhx-19-GVy" secondAttribute="trailing" constant="24" id="bvQ-VC-DsL"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4Ae-f4-SNf"/>
@@ -207,6 +194,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

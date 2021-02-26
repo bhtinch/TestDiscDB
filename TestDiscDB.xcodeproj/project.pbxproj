@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6209F71425E857D9009F41EE /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6209F71325E857D9009F41EE /* RegistrationViewController.swift */; };
 		620B40E325E42347002C355A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620B40E225E42347002C355A /* AppDelegate.swift */; };
 		620B40E525E42347002C355A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620B40E425E42347002C355A /* SceneDelegate.swift */; };
 		620B40EA25E42347002C355A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 620B40E825E42347002C355A /* Main.storyboard */; };
@@ -17,16 +18,19 @@
 		620B412825E433F3002C355A /* DiscListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620B412725E433F3002C355A /* DiscListTableViewController.swift */; };
 		620B413125E47747002C355A /* Disc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620B413025E47747002C355A /* Disc.swift */; };
 		620B413525E47790002C355A /* Bag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620B413425E47790002C355A /* Bag.swift */; };
-		625C684425E599730008FE2D /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625C684325E599730008FE2D /* TestViewController.swift */; };
 		625F48D525E6EB51004EE832 /* LocalDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625F48D425E6EB51004EE832 /* LocalDatabase.swift */; };
 		625F48D925E6FA76004EE832 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625F48D825E6FA76004EE832 /* NetworkError.swift */; };
 		625F48DC25E71230004EE832 /* DiscDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625F48DB25E71230004EE832 /* DiscDetailViewController.swift */; };
+		628A223225E8438D00EB7DFC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628A223125E8438D00EB7DFC /* LoginViewController.swift */; };
+		628A223525E8498A00EB7DFC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628A223425E8498A00EB7DFC /* Extensions.swift */; };
+		62DFA1B325E82D810019146D /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DFA1B225E82D810019146D /* AuthManager.swift */; };
 		F2EEF7F75F2BA008697C9536 /* Pods_TestDiscDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF18FF6E94B306B33AD730D4 /* Pods_TestDiscDB.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2647F9E1CB1A600EB6E9ADDF /* Pods-TestDiscDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDiscDB.release.xcconfig"; path = "Target Support Files/Pods-TestDiscDB/Pods-TestDiscDB.release.xcconfig"; sourceTree = "<group>"; };
 		4380560ABF46D5C21CAE42FB /* Pods-TestDiscDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestDiscDB.debug.xcconfig"; path = "Target Support Files/Pods-TestDiscDB/Pods-TestDiscDB.debug.xcconfig"; sourceTree = "<group>"; };
+		6209F71325E857D9009F41EE /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		620B40DF25E42347002C355A /* TestDiscDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestDiscDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		620B40E225E42347002C355A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		620B40E425E42347002C355A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,10 +43,12 @@
 		620B412725E433F3002C355A /* DiscListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscListTableViewController.swift; sourceTree = "<group>"; };
 		620B413025E47747002C355A /* Disc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disc.swift; sourceTree = "<group>"; };
 		620B413425E47790002C355A /* Bag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bag.swift; sourceTree = "<group>"; };
-		625C684325E599730008FE2D /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		625F48D425E6EB51004EE832 /* LocalDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabase.swift; sourceTree = "<group>"; };
 		625F48D825E6FA76004EE832 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		625F48DB25E71230004EE832 /* DiscDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscDetailViewController.swift; sourceTree = "<group>"; };
+		628A223125E8438D00EB7DFC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		628A223425E8498A00EB7DFC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		62DFA1B225E82D810019146D /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		FF18FF6E94B306B33AD730D4 /* Pods_TestDiscDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestDiscDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -75,6 +81,13 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		6209F71725E8943B009F41EE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		620B40D625E42346002C355A = {
 			isa = PBXGroup;
 			children = (
@@ -97,11 +110,12 @@
 			isa = PBXGroup;
 			children = (
 				625F48D725E6FA64004EE832 /* Helpers */,
-				620B413325E4777D002C355A /* Model Controller */,
 				620B412F25E47720002C355A /* Models */,
-				620B411E25E428F6002C355A /* Resources */,
+				620B413325E4777D002C355A /* Model Controller */,
 				620B412125E42915002C355A /* View Controllers */,
+				6209F71725E8943B009F41EE /* Views */,
 				620B412025E4290A002C355A /* Storyboards */,
+				620B411E25E428F6002C355A /* Resources */,
 				620B40F725E42463002C355A /* GoogleService-Info.plist */,
 				620B40F025E42347002C355A /* Info.plist */,
 			);
@@ -132,8 +146,9 @@
 			children = (
 				620B412425E433EB002C355A /* MyBagTableViewController.swift */,
 				620B412725E433F3002C355A /* DiscListTableViewController.swift */,
-				625C684325E599730008FE2D /* TestViewController.swift */,
 				625F48DB25E71230004EE832 /* DiscDetailViewController.swift */,
+				628A223125E8438D00EB7DFC /* LoginViewController.swift */,
+				6209F71325E857D9009F41EE /* RegistrationViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -159,6 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				625F48D825E6FA76004EE832 /* NetworkError.swift */,
+				628A223425E8498A00EB7DFC /* Extensions.swift */,
+				62DFA1B225E82D810019146D /* AuthManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -278,14 +295,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				625C684425E599730008FE2D /* TestViewController.swift in Sources */,
+				628A223225E8438D00EB7DFC /* LoginViewController.swift in Sources */,
 				620B40E325E42347002C355A /* AppDelegate.swift in Sources */,
 				620B413125E47747002C355A /* Disc.swift in Sources */,
 				620B412525E433EB002C355A /* MyBagTableViewController.swift in Sources */,
 				620B412825E433F3002C355A /* DiscListTableViewController.swift in Sources */,
 				620B413525E47790002C355A /* Bag.swift in Sources */,
 				625F48D925E6FA76004EE832 /* NetworkError.swift in Sources */,
+				628A223525E8498A00EB7DFC /* Extensions.swift in Sources */,
+				6209F71425E857D9009F41EE /* RegistrationViewController.swift in Sources */,
 				625F48D525E6EB51004EE832 /* LocalDatabase.swift in Sources */,
+				62DFA1B325E82D810019146D /* AuthManager.swift in Sources */,
 				625F48DC25E71230004EE832 /* DiscDetailViewController.swift in Sources */,
 				620B40E525E42347002C355A /* SceneDelegate.swift in Sources */,
 			);
@@ -438,6 +458,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QYHXM7HJ4V;
 				INFOPLIST_FILE = TestDiscDB/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -458,6 +479,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QYHXM7HJ4V;
 				INFOPLIST_FILE = TestDiscDB/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
