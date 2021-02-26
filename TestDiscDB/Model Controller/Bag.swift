@@ -11,42 +11,32 @@ class Bag {
     static let shared = Bag()
     
     var myBag: [Disc] = []
+    var myNSBag: [NSString] = []
     
     func addDiscToBagWith(disc: Disc) {
         myBag.append(disc)
-        self.saveToPersistenceStore()
+        myNSBag.append(disc.uuid as NSString)
+        UserDatabaseManager.shared.updateUser()
     }
     
     func removeDiscFromBag(index: Int) {
         myBag.remove(at: index)
-        self.saveToPersistenceStore()
+        myNSBag.remove(at: index)
+        UserDatabaseManager.shared.updateUser()
     }
     
-    //  MARK: - Persistence
-    func fileURL() -> URL {
-        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let fileURL = urls[0].appendingPathComponent("Bag.json")
-        return fileURL
-    }
-    
-    func saveToPersistenceStore() {
-        do {
-            let data = try JSONEncoder().encode(myBag)
-            try data.write(to: fileURL())
-        } catch {
-            print(error)
-            print(error.localizedDescription)
+    func fetchDiscs() {
+        UserDatabaseManager.shared.getUserData()
+        
+        //  use completion block on getUserData to build a bag of [Disc] from the uuid data stored in 'myBag' key on database
+        
+        /*  something like:
+        for index in [user database myBag uuids] {
+            for disc in LocalDatabase.shared.localDatabase {
+                if uuid == disc.uuid { myBag.append(disc) }
+            }
         }
+        */
     }
     
-    func loadFromPersistenceStore() {
-        do {
-            let data = try Data(contentsOf: fileURL())
-            let loaded = try JSONDecoder().decode([Disc].self, from: data)
-            myBag = loaded
-        } catch {
-            print(error)
-            print(error.localizedDescription)
-        }
-    }
 }

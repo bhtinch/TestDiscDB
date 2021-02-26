@@ -17,7 +17,14 @@ class AuthManager {
             
             guard error == nil, authResult != nil else { return completion(false) }
             
-            return completion(true)
+            UserDatabaseManager.shared.insertNewUserWith(email: email) { (test) in
+                if test {
+                    print("New Firebase User added to the user database.")
+                    return completion(true)
+                } else {
+                    //  ERROR
+                }
+            }
         }
     }
     
@@ -39,6 +46,10 @@ class AuthManager {
             print("Could not sign out.")
             return completion(false)
         }
+    }
+    
+    func deleteUser(){
+        //  NEEDS IMPLEMENTATION
     }
     
 }

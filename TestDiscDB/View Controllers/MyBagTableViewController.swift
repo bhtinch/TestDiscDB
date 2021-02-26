@@ -13,7 +13,7 @@ class MyBagTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Bag.shared.loadFromPersistenceStore()
+        Bag.shared.fetchDiscs()
     }
     
     override func viewWillAppear(_ animated: Bool) {
