@@ -65,7 +65,7 @@
                             <barButtonItem title="Switch Bag" id="c1B-YP-0RQ">
                                 <connections>
                                     <action selector="switchBagButtonTapped:" destination="MGs-fg-XgC" id="dRD-jy-MKa"/>
-                                    <segue destination="Dlb-LV-k3M" kind="show" id="aPK-kB-DiY"/>
+                                    <segue destination="Dlb-LV-k3M" kind="show" identifier="toSwitchBagTVC" id="aPK-kB-DiY"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>

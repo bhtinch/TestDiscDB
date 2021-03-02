@@ -8,6 +8,10 @@
 import UIKit
 import FirebaseDatabase
 
+protocol SwitchBagTableViewDelegate: AnyObject {
+    func send(bagID: String)
+}
+
 class SwitchBagTableViewController: UITableViewController {
 
     override func viewDidLoad() {
@@ -18,6 +22,7 @@ class SwitchBagTableViewController: UITableViewController {
     }
     
     var bags: [[String]] = []
+    weak var delegate: SwitchBagTableViewDelegate?
     
     func getBaglist() {
         let pathString = "\(UserKeys.userID)/\(UserKeys.bags)"
@@ -27,7 +32,7 @@ class SwitchBagTableViewController: UITableViewController {
                 for child in snap.children {
                     guard let childSnap = child as? DataSnapshot else { return }
                     let bagID = childSnap.key as String
-                    let bagName  = childSnap.childSnapshot(forPath: UserKeys.bagName).value as? String ?? "Unnamed"
+                    let bagName  = childSnap.childSnapshot(forPath: BagKeys.name).value as? String ?? "Unnamed"
                     
                     let bag = [bagName, bagID]
                     self.bags.append(bag)
@@ -55,8 +60,8 @@ class SwitchBagTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let bagID = bags[indexPath.row][1]
-        MyBagTableViewController.shared.bagID = bagID
+        let bagID = self.bags[indexPath.row][1]
+        delegate?.send(bagID: bagID)
         navigationController?.popViewController(animated: true)
     }
 
@@ -68,15 +73,4 @@ class SwitchBagTableViewController: UITableViewController {
         }
     }
 
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "backToMyBagVC" {
-//            guard let indexPath =  tableView.indexPathForSelectedRow,
-//            let destination = segue.destination as? MyBagTableViewController else { return }
-//            destination.bagID = bags[indexPath.row][1]
-//        }
-//    }
-
-}
+}   //  End of Class

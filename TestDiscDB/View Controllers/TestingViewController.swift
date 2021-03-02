@@ -39,10 +39,24 @@ class TestingViewController: UIViewController {
         
         let bagPath = "\(userID)/bags/\(bagID)"
         
-        let bagSnap = self.database.child(bagPath).observeSingleEvent(of: .value) { (snap) in
-            DispatchQueue.main.async {
-                self.bagnNameLabel.text = snap.childSnapshot(forPath: "name").value as? String ?? ""
-                self.discNameLabel.text = snap.childSnapshot(forPath: "discs").childSnapshot(forPath: "discID1").childSnapshot(forPath: "name").value as? String ?? ""
+        self.database.child(bagPath).observeSingleEvent(of: .value) { (snap) in
+                if self.userID == "0" {
+                    DispatchQueue.main.async {
+                    self.bagnNameLabel.text = snap.childSnapshot(forPath: "name").value as? String ?? ""
+                    self.discNameLabel.text = snap.childSnapshot(forPath: "discs").childSnapshot(forPath: "discID1").childSnapshot(forPath: "name").value as? String ?? ""
+                }
+                
+                if self.userID == "0" {
+                    DispatchQueue.main.async {
+                    self.discBrandLabel.text = snap.childSnapshot(forPath: "discs").childSnapshot(forPath: "discID1").childSnapshot(forPath: "color").value as? String ?? ""
+                }
+            }
+            
+                if self.userID == "0" {
+                    DispatchQueue.main.async {
+                    self.bagnNameLabel.text = "cheese"
+                    }
+                }
             }
         }
     }

@@ -43,12 +43,12 @@ class DiscDetailViewController: UIViewController {
     
     @IBAction func bagItButtonTapped(_ sender: Any) {
         print("bagged")
-        
-        guard let disc = selectedDisc,
-              let bag = currentBag else { return }
-        BagController.shared.addDiscToBagWith(disc: disc, bag: bag)
-        
-        self.dismiss(animated: true, completion: nil)
+//        
+//        guard let disc = selectedDisc,
+//              let bag = currentBag else { return }
+//        BagController.shared.addDiscToBagWith(disc: disc, bag: bag)
+//
+//        self.dismiss(animated: true, completion: nil)
     }
     
     //  MARK: - Configure Views

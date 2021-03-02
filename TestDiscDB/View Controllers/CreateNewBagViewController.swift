@@ -40,13 +40,13 @@ class CreateNewBagViewController: UIViewController {
     }
     
     @IBAction func createButtonTapped(_ sender: Any) {
-        guard let name = bagNameTextField.text, !name.isEmpty else { return }
-        let brand = bagBrandTextField?.text ?? "null"
-        let model = bagModelTextField?.text ?? "null"
-        let color = bagColorTextField?.text ?? "null"
-        
-        UserDatabaseManager.shared.addUserBagWith(name: name, brand: brand, model: model, color: color, isDefault: isDefault)
-        self.dismiss(animated: true, completion: nil)
+//        guard let name = bagNameTextField.text, !name.isEmpty else { return }
+//        let brand = bagBrandTextField?.text ?? "null"
+//        let model = bagModelTextField?.text ?? "null"
+//        let color = bagColorTextField?.text ?? "null"
+//
+//        UserDatabaseManager.shared.addUserBagWith(name: name, brand: brand, model: model, color: color, isDefault: isDefault)
+//        self.dismiss(animated: true, completion: nil)
     }
     
 

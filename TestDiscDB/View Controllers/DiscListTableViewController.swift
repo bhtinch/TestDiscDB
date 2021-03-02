@@ -70,11 +70,11 @@ class DiscListTableViewController: UITableViewController {
     func presentAddDiscAlertWith(disc: Disc) {
         let alertController = UIAlertController(title: "\(disc.model) by \(disc.make)", message: "Add To Your bag??", preferredStyle: .alert)
         
-        let addAction = UIAlertAction(title: "Bag it!", style: .default) { (_) in
-            guard let bag = self.currentBag else { return }
-            BagController.shared.addDiscToBagWith(disc: disc, bag: bag)
-            print("bagged")
-        }
+//        let addAction = UIAlertAction(title: "Bag it!", style: .default) { (_) in
+//            guard let bag = self.currentBag else { return }
+//            BagController.shared.addDiscToBagWith(disc: disc, bag: bag)
+//            print("bagged")
+//        }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
             self.dismiss(animated: true, completion: nil)
@@ -90,7 +90,7 @@ class DiscListTableViewController: UITableViewController {
             self.present(controller, animated: true, completion: nil)
         }
         
-        alertController.addAction(addAction)
+        //alertController.addAction(addAction)
         alertController.addAction(cancelAction)
         alertController.addAction(showDetailAction)
         

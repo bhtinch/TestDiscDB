@@ -13,11 +13,11 @@ class Bag {
     var model: String?
     var color: String?
     var discs: [Disc]
-    var discIDs: [String]
+    var discIDs: [String : String]
     var isDefault: Bool
     var uuidString: String
     
-    init(name: String, brand: String?, model: String?, color: String?, discs: [Disc] = [], discIDs: [String] = [], isDefault: Bool = false, uuidString: String = UUID().uuidString) {
+    init(name: String, brand: String?, model: String?, color: String?, discs: [Disc] = [], discIDs: [String : String] = [:], isDefault: Bool = false, uuidString: String = UUID().uuidString) {
         self.name = name
         self.brand = brand
         self.model = model

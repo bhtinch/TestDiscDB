@@ -15,15 +15,6 @@ struct UserKeys {
     static let racks = "Racks"
     static let email = "Email"
     static let userID = Auth.auth().currentUser?.uid ?? "No User"
-    
-    //  Bag Object
-    static let bagID = "bagID"
-    static let discIDs = "Discs"
-    static let bagName = "name"
-    static let bagBrand = "brand"
-    static let bagModel = "model"
-    static let bagColor = "color"
-    static let isDefault = "isDefault"
 }
 
 class UserDatabaseManager {
@@ -55,42 +46,42 @@ class UserDatabaseManager {
         database.child(userID).updateChildValues([key : value])
     }
     
-    func updateUserBagWith(bag: Bag) {
-        guard let userID = Auth.auth().currentUser?.uid else { return }
-        let bagID = bag.uuidString
-        let pathString = userID + "/" + UserKeys.bags + "/" + bagID
-        
-        database.child(pathString).updateChildValues([
-            UserKeys.bagName : bag.name,
-            UserKeys.bagBrand : bag.brand ?? "",
-            UserKeys.bagModel : bag.model ?? "",
-            UserKeys.bagColor : bag.color ?? "",
-            UserKeys.isDefault : bag.isDefault,
-            UserKeys.discIDs : bag.discIDs
-        ])
-    }
-    
-    func getAllUserData() {
-        guard let userID = Auth.auth().currentUser?.uid else { return }
-        
-        database.child(userID).getData { (error, snapshot) in
-            print(snapshot)
-        }
-    }
-    
-    func addUserBagWith(name: String, brand: String, model: String, color: String, isDefault: Bool) {
-        guard let userID = Auth.auth().currentUser?.uid else { return }
-        let pathString = "\(userID)/\(UserKeys.bags)"
-        
-        database.child(pathString).childByAutoId().setValue([
-            UserKeys.bagName : name,
-            UserKeys.bagBrand : brand,
-            UserKeys.bagModel : model,
-            UserKeys.bagColor : color,
-            UserKeys.isDefault : isDefault,
-            UserKeys.discIDs : [String]()
-        ])
-    }
+//    func updateUserBagWith(bag: Bag) {
+//        guard let userID = Auth.auth().currentUser?.uid else { return }
+//        let bagID = bag.uuidString
+//        let pathString = userID + "/" + UserKeys.bags + "/" + bagID
+//
+//        database.child(pathString).updateChildValues([
+//            UserKeys.bagName : bag.name,
+//            UserKeys.bagBrand : bag.brand ?? "",
+//            UserKeys.bagModel : bag.model ?? "",
+//            UserKeys.bagColor : bag.color ?? "",
+//            UserKeys.isDefault : bag.isDefault,
+//            UserKeys.discIDs : bag.discIDs
+//        ])
+//    }
+//
+//    func getAllUserData() {
+//        guard let userID = Auth.auth().currentUser?.uid else { return }
+//
+//        database.child(userID).getData { (error, snapshot) in
+//            print(snapshot)
+//        }
+//    }
+//
+//    func addUserBagWith(name: String, brand: String, model: String, color: String, isDefault: Bool) {
+//        guard let userID = Auth.auth().currentUser?.uid else { return }
+//        let pathString = "\(userID)/\(UserKeys.bags)"
+//
+//        database.child(pathString).childByAutoId().setValue([
+//            UserKeys.bagName : name,
+//            UserKeys.bagBrand : brand,
+//            UserKeys.bagModel : model,
+//            UserKeys.bagColor : color,
+//            UserKeys.isDefault : isDefault,
+//            UserKeys.discIDs : [String]()
+//        ])
+//    }
     
     func getUserBagWith(id: String) -> [Bag] {
         guard let userID = Auth.auth().currentUser?.uid else { return [] }

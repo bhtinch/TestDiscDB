@@ -7,79 +7,223 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "46B8A7EA-6EF0-478E-A660-EEC15A2F030F"
+            uuid = "6F7DCFD3-306E-4503-8576-9397316AA5B5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TestDiscDB/View Controllers/MyBagTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "send(bagID:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6F7DCFD3-306E-4503-8576-9397316AA5B5 - 6da9cac88d130324"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TestDiscDB.MyBagTableViewController.send(bagID: Swift.String) -&gt; ()"
+                  moduleName = "TestDiscDB"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/btincher/Documents/DevMountain%20iOS38/Bag%20O&apos;%20Discs/Test%20Projects/TestDiscDB/TestDiscDB/View%20Controllers/MyBagTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "240">
+               </Location>
+               <Location
+                  uuid = "6F7DCFD3-306E-4503-8576-9397316AA5B5 - d5990881cd23bb40"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;TestDiscDB.Bag, TestDiscDB.NetworkError&gt;) -&gt; () in TestDiscDB.MyBagTableViewController.send(bagID: Swift.String) -&gt; ()"
+                  moduleName = "TestDiscDB"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/btincher/Documents/DevMountain%20iOS38/Bag%20O&apos;%20Discs/Test%20Projects/TestDiscDB/TestDiscDB/View%20Controllers/MyBagTableViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "132"
+                  endingLineNumber = "132"
+                  offsetFromSymbolStart = "232">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8BA35C1B-CD78-441A-9073-3D3C8522DF5A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TestDiscDB/Helpers/BagManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "updateBagWith(bagID:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6D082C63-86D2-483B-928F-6AD7CDAD4B48"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TestDiscDB/Helpers/BagManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "updateBagWith(bagID:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6D082C63-86D2-483B-928F-6AD7CDAD4B48 - 43ecfdfa6c564414"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static TestDiscDB.BagManager.updateBagWith(bagID: Swift.String, completion: (Swift.Result&lt;TestDiscDB.Bag, TestDiscDB.NetworkError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TestDiscDB"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/btincher/Documents/DevMountain%20iOS38/Bag%20O&apos;%20Discs/Test%20Projects/TestDiscDB/TestDiscDB/Helpers/BagManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "1000">
+               </Location>
+               <Location
+                  uuid = "6D082C63-86D2-483B-928F-6AD7CDAD4B48 - 995792a10e46adf9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.FIRDataSnapshot) -&gt; () in static TestDiscDB.BagManager.updateBagWith(bagID: Swift.String, completion: (Swift.Result&lt;TestDiscDB.Bag, TestDiscDB.NetworkError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TestDiscDB"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/btincher/Documents/DevMountain%20iOS38/Bag%20O&apos;%20Discs/Test%20Projects/TestDiscDB/TestDiscDB/Helpers/BagManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "84"
+                  endingLineNumber = "84"
+                  offsetFromSymbolStart = "164">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AC568984-7A97-430A-8418-56ABCDF7CB13"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TestDiscDB/Helpers/BagManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "updateBagWith(bagID:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "55AE5CBC-CCB2-425B-A152-B28CB635B7C7"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TestDiscDB/Model Controller/LocalDatabase.swift"
+            filePath = "TestDiscDB/Helpers/BagManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "syncDatabase(completion:)"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "updateBagWith(bagID:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5F4E04D4-1539-4E35-BF86-BA604CA10C99"
+            uuid = "FB6A7396-13F4-447C-8ADB-69FDE41A6D23"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TestDiscDB/View Controllers/MyBagTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "137"
-            endingLineNumber = "137"
-            landmarkName = "prepare(for:sender:)"
+            startingLineNumber = "129"
+            endingLineNumber = "129"
+            landmarkName = "send(bagID:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "82B65202-E723-460E-B1E4-8E60983B4D54"
+            uuid = "14BA784B-64F2-48D0-9866-FA3B3078B8D6"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TestDiscDB/Helpers/AuthManager.swift"
+            filePath = "TestDiscDB/Helpers/BagManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "registerNewUserWith(email:password:completion:)"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "updateBagWith(bagID:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "852E9B20-EDC1-4FB9-83CD-7277215CA720"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TestDiscDB/View Controllers/MyBagTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "send(bagID:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "82B65202-E723-460E-B1E4-8E60983B4D54 - 7384fd0db8c8cfa0"
+                  uuid = "852E9B20-EDC1-4FB9-83CD-7277215CA720 - 5b60462cf28f256"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in TestDiscDB.AuthManager.registerNewUserWith(email: Swift.String, password: Swift.String, completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Result&lt;TestDiscDB.Bag, TestDiscDB.NetworkError&gt;) -&gt; () in TestDiscDB.MyBagTableViewController.send(bagID: Swift.String) -&gt; ()"
                   moduleName = "TestDiscDB"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/btincher/Documents/DevMountain%20iOS38/Bag%20O&apos;%20Discs/Test%20Projects/TestDiscDB/TestDiscDB/Helpers/AuthManager.swift"
+                  urlString = "file:///Users/btincher/Documents/DevMountain%20iOS38/Bag%20O&apos;%20Discs/Test%20Projects/TestDiscDB/TestDiscDB/View%20Controllers/MyBagTableViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "21"
-                  endingLineNumber = "21"
-                  offsetFromSymbolStart = "440">
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "168">
                </Location>
                <Location
-                  uuid = "82B65202-E723-460E-B1E4-8E60983B4D54 - 6f68f26bf5098d33"
+                  uuid = "852E9B20-EDC1-4FB9-83CD-7277215CA720 - 5b60462cf28f256"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Bool) -&gt; () in closure #1 (Swift.Optional&lt;__C.FIRAuthDataResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in TestDiscDB.AuthManager.registerNewUserWith(email: Swift.String, password: Swift.String, completion: (Swift.Bool) -&gt; ()) -&gt; ()"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Result&lt;TestDiscDB.Bag, TestDiscDB.NetworkError&gt;) -&gt; () in TestDiscDB.MyBagTableViewController.send(bagID: Swift.String) -&gt; ()"
                   moduleName = "TestDiscDB"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/btincher/Documents/DevMountain%20iOS38/Bag%20O&apos;%20Discs/Test%20Projects/TestDiscDB/TestDiscDB/Helpers/AuthManager.swift"
+                  urlString = "file:///Users/btincher/Documents/DevMountain%20iOS38/Bag%20O&apos;%20Discs/Test%20Projects/TestDiscDB/TestDiscDB/View%20Controllers/MyBagTableViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "76">
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "188">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -87,63 +231,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D0061157-D44A-4A4C-B628-82EF997CCD09"
+            uuid = "104472A1-8A65-4CAC-9CFA-F236B35B37E3"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TestDiscDB/Helpers/UserDatabaseManager.swift"
+            filePath = "TestDiscDB/View Controllers/MyBagTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "updateUserBagWith(bag:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3DE20616-CEF4-400A-8583-FB7C75FA33DC"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TestDiscDB/View Controllers/TestingViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "getData()"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "send(bagID:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "3DE20616-CEF4-400A-8583-FB7C75FA33DC - 5169fdb577d7bbef"
+                  uuid = "104472A1-8A65-4CAC-9CFA-F236B35B37E3 - 5b60462cf28f256"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "TestDiscDB.TestingViewController.getData() -&gt; ()"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Result&lt;TestDiscDB.Bag, TestDiscDB.NetworkError&gt;) -&gt; () in TestDiscDB.MyBagTableViewController.send(bagID: Swift.String) -&gt; ()"
                   moduleName = "TestDiscDB"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/btincher/Documents/DevMountain%20iOS38/Bag%20O&apos;%20Discs/Test%20Projects/TestDiscDB/TestDiscDB/View%20Controllers/TestingViewController.swift"
+                  urlString = "file:///Users/btincher/Documents/DevMountain%20iOS38/Bag%20O&apos;%20Discs/Test%20Projects/TestDiscDB/TestDiscDB/View%20Controllers/MyBagTableViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "42"
-                  endingLineNumber = "42"
-                  offsetFromSymbolStart = "556">
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "168">
                </Location>
                <Location
-                  uuid = "3DE20616-CEF4-400A-8583-FB7C75FA33DC - 9040c50ebb7bcbc7"
+                  uuid = "104472A1-8A65-4CAC-9CFA-F236B35B37E3 - 5b60462cf28f256"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (__C.FIRDataSnapshot) -&gt; () in TestDiscDB.TestingViewController.getData() -&gt; ()"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Result&lt;TestDiscDB.Bag, TestDiscDB.NetworkError&gt;) -&gt; () in TestDiscDB.MyBagTableViewController.send(bagID: Swift.String) -&gt; ()"
                   moduleName = "TestDiscDB"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/btincher/Documents/DevMountain%20iOS38/Bag%20O&apos;%20Discs/Test%20Projects/TestDiscDB/TestDiscDB/View%20Controllers/TestingViewController.swift"
+                  urlString = "file:///Users/btincher/Documents/DevMountain%20iOS38/Bag%20O&apos;%20Discs/Test%20Projects/TestDiscDB/TestDiscDB/View%20Controllers/MyBagTableViewController.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "192">
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "188">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -151,48 +279,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4A29776B-6EAD-42AD-9DA6-4C88F5947D75"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TestDiscDB/View Controllers/TestingViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "getData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "33C865B5-65FA-4962-9045-A983FA4E8FE7"
+            uuid = "19D8070E-5F29-4544-88C0-756B271A969B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TestDiscDB/View Controllers/MyBagTableViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "setBag()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C726E57F-5C13-42D4-95BB-09EAA9B5DAFC"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TestDiscDB/View Controllers/SwitchBagTableViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "send(bagID:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
