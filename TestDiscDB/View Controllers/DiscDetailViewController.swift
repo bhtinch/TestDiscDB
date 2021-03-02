@@ -12,6 +12,7 @@ class DiscDetailViewController: UIViewController {
     //  MARK: - Properties
     @IBOutlet weak var linkButton: UIButton!
     
+    var currentBag: Bag?
     var selectedDisc: Disc? {
         didSet {
             configureView()
@@ -43,8 +44,9 @@ class DiscDetailViewController: UIViewController {
     @IBAction func bagItButtonTapped(_ sender: Any) {
         print("bagged")
         
-        guard let disc = selectedDisc else { return }
-        Bag.shared.addDiscToBagWith(disc: disc)
+        guard let disc = selectedDisc,
+              let bag = currentBag else { return }
+        BagController.shared.addDiscToBagWith(disc: disc, bag: bag)
         
         self.dismiss(animated: true, completion: nil)
     }

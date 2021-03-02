@@ -32,7 +32,7 @@ class Disc: Codable {
     let type: String
     let uuid: String
     
-    init(approvalDate: Date?, plastics: String, certNumber: String, modelClass: String, diameter: Double?, model: String, fade: Double?, flexibility: Double?, glide: Double?, height: Double?, inProduction: String, insideRimDia: Double?, linkURLString: String, make: String, maxWeight: Int?, rimConfig: Double?, rimDepth: Double?, rimDepthToDiaRatio: Double?, thickness: Double?, speed: Int?, turn: Double?, type: String, uuid: String = UUID().uuidString) {
+    init(approvalDate: Date?, plastics: String, certNumber: String, modelClass: String, diameter: Double?, model: String, fade: Double?, flexibility: Double?, glide: Double?, height: Double?, inProduction: String, insideRimDia: Double?, linkURLString: String, make: String, maxWeight: Int?, rimConfig: Double?, rimDepth: Double?, rimDepthToDiaRatio: Double?, thickness: Double?, speed: Int?, turn: Double?, type: String, uuid: String) {
         self.approvalDate = approvalDate
         self.plastics = plastics
         self.certNumber = certNumber

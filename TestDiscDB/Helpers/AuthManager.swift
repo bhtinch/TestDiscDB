@@ -15,9 +15,10 @@ class AuthManager {
         
         Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
             
-            guard error == nil, authResult != nil else { return completion(false) }
+            guard error == nil,
+                  let userID = authResult?.user.uid else { return completion(false) }
             
-            UserDatabaseManager.shared.insertNewUserWith(email: email) { (test) in
+            UserDatabaseManager.shared.insertNewUserWith(userID: userID, email: email) { (test) in
                 if test {
                     print("New Firebase User added to the user database.")
                     return completion(true)
@@ -38,13 +39,12 @@ class AuthManager {
     }
     
     /// Attempt to logout firebase user
-    func logoutUser(completion: @escaping (Bool) -> Void) {
+    func logoutUser() {
         do {
             try Auth.auth().signOut()
-            return completion(true)
+            print("firebase user logged out")
         } catch {
             print("Could not sign out.")
-            return completion(false)
         }
     }
     

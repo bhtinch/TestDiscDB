@@ -14,6 +14,9 @@ class DiscListTableViewController: UITableViewController {
     
     private var filteredDiscList: [Disc] = []
     
+    var currentBag: Bag?
+    
+    //  MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
@@ -30,6 +33,10 @@ class DiscListTableViewController: UITableViewController {
                 }
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     //  MARK: - Actions
@@ -60,28 +67,13 @@ class DiscListTableViewController: UITableViewController {
         }
     }
     
-    // MARK: - Table view data source
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredDiscList.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "discCell", for: indexPath)
-        
-        cell.textLabel?.text = self.filteredDiscList[indexPath.row].model
-        cell.detailTextLabel?.text = self.filteredDiscList[indexPath.row].make
-        
-        return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let disc = filteredDiscList[indexPath.row]
-        
+    func presentAddDiscAlertWith(disc: Disc) {
         let alertController = UIAlertController(title: "\(disc.model) by \(disc.make)", message: "Add To Your bag??", preferredStyle: .alert)
         
         let addAction = UIAlertAction(title: "Bag it!", style: .default) { (_) in
+            guard let bag = self.currentBag else { return }
+            BagController.shared.addDiscToBagWith(disc: disc, bag: bag)
             print("bagged")
-            Bag.shared.addDiscToBagWith(disc: disc)
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
@@ -105,6 +97,29 @@ class DiscListTableViewController: UITableViewController {
         present(alertController, animated: true, completion: nil)
     }
     
+    func presentRemoveDiscsFromOtherBagsWith(disc: Disc) {
+        //  BagController.shared.removeDiscFromBag   loop through bags and compare if current bag or something
+    }
+    
+    // MARK: - Table view data source
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return filteredDiscList.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "discCell", for: indexPath)
+        
+        cell.textLabel?.text = self.filteredDiscList[indexPath.row].model
+        cell.detailTextLabel?.text = self.filteredDiscList[indexPath.row].make
+        
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let disc = filteredDiscList[indexPath.row]
+        presentAddDiscAlertWith(disc: disc)
+        presentRemoveDiscsFromOtherBagsWith(disc: disc)
+    }
 }
 
 extension DiscListTableViewController: UISearchBarDelegate {

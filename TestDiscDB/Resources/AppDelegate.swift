@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        FirebaseDatabase.Database.database().isPersistenceEnabled = true
+        FirebaseDatabase.Database.database(url: "https://testdiscdb-users-rtdb.firebaseio.com/").isPersistenceEnabled = true
         return true
     }
 

@@ -70,7 +70,9 @@ class LocalDatabase {
                     
                     let type = snapshot.childSnapshot(forPath: "\(index)").childSnapshot(forPath: "Type").value as? String ?? ""
                     
-                    let disc = Disc(approvalDate: approvalDate, plastics: plastics, certNumber: certNumber, modelClass: modelClass, diameter: diameter, model: model, fade: fade, flexibility: flexibility, glide: glide, height: height, inProduction: inProduction, insideRimDia: insideRimDia, linkURLString: linkURLString, make: make, maxWeight: maxWeight, rimConfig: rimConfig, rimDepth: rimDepth, rimDepthToDiaRatio: rimDepthToDiaRatio, thickness: thickness, speed: speed, turn: turn, type: type)
+                    let uuid = snapshot.childSnapshot(forPath: "\(index)").childSnapshot(forPath: "uuid").value as? String ?? ""
+                    
+                    let disc = Disc(approvalDate: approvalDate, plastics: plastics, certNumber: certNumber, modelClass: modelClass, diameter: diameter, model: model, fade: fade, flexibility: flexibility, glide: glide, height: height, inProduction: inProduction, insideRimDia: insideRimDia, linkURLString: linkURLString, make: make, maxWeight: maxWeight, rimConfig: rimConfig, rimDepth: rimDepth, rimDepthToDiaRatio: rimDepthToDiaRatio, thickness: thickness, speed: speed, turn: turn, type: type, uuid: uuid)
 
                     self.localDatabase.append(disc)
                 }

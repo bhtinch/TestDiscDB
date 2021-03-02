@@ -18,13 +18,19 @@
 		620B412525E433EB002C355A /* MyBagTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620B412425E433EB002C355A /* MyBagTableViewController.swift */; };
 		620B412825E433F3002C355A /* DiscListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620B412725E433F3002C355A /* DiscListTableViewController.swift */; };
 		620B413125E47747002C355A /* Disc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620B413025E47747002C355A /* Disc.swift */; };
-		620B413525E47790002C355A /* Bag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620B413425E47790002C355A /* Bag.swift */; };
+		620B413525E47790002C355A /* BagController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620B413425E47790002C355A /* BagController.swift */; };
+		620E07BC25E9662B00879669 /* Rack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620E07BB25E9662B00879669 /* Rack.swift */; };
+		620E07C025E969A500879669 /* RackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620E07BF25E969A500879669 /* RackController.swift */; };
+		620E07D325E9ADED00879669 /* CreateNewBagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620E07D225E9ADED00879669 /* CreateNewBagViewController.swift */; };
+		6238DB6225EDDC05009FCEA7 /* SwitchBagTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6238DB6125EDDC05009FCEA7 /* SwitchBagTableViewController.swift */; };
+		6248670C25EB42DA00CE503F /* TestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6248670B25EB42DA00CE503F /* TestingViewController.swift */; };
 		625F48D525E6EB51004EE832 /* LocalDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625F48D425E6EB51004EE832 /* LocalDatabase.swift */; };
 		625F48D925E6FA76004EE832 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625F48D825E6FA76004EE832 /* NetworkError.swift */; };
 		625F48DC25E71230004EE832 /* DiscDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625F48DB25E71230004EE832 /* DiscDetailViewController.swift */; };
 		628A223225E8438D00EB7DFC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628A223125E8438D00EB7DFC /* LoginViewController.swift */; };
 		628A223525E8498A00EB7DFC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628A223425E8498A00EB7DFC /* Extensions.swift */; };
 		62DFA1B325E82D810019146D /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DFA1B225E82D810019146D /* AuthManager.swift */; };
+		62FD3A2925E9631000BC90F6 /* Bag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FD3A2825E9631000BC90F6 /* Bag.swift */; };
 		F2EEF7F75F2BA008697C9536 /* Pods_TestDiscDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF18FF6E94B306B33AD730D4 /* Pods_TestDiscDB.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,13 +50,19 @@
 		620B412425E433EB002C355A /* MyBagTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBagTableViewController.swift; sourceTree = "<group>"; };
 		620B412725E433F3002C355A /* DiscListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscListTableViewController.swift; sourceTree = "<group>"; };
 		620B413025E47747002C355A /* Disc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Disc.swift; sourceTree = "<group>"; };
-		620B413425E47790002C355A /* Bag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bag.swift; sourceTree = "<group>"; };
+		620B413425E47790002C355A /* BagController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BagController.swift; sourceTree = "<group>"; };
+		620E07BB25E9662B00879669 /* Rack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rack.swift; sourceTree = "<group>"; };
+		620E07BF25E969A500879669 /* RackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RackController.swift; sourceTree = "<group>"; };
+		620E07D225E9ADED00879669 /* CreateNewBagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewBagViewController.swift; sourceTree = "<group>"; };
+		6238DB6125EDDC05009FCEA7 /* SwitchBagTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchBagTableViewController.swift; sourceTree = "<group>"; };
+		6248670B25EB42DA00CE503F /* TestingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingViewController.swift; sourceTree = "<group>"; };
 		625F48D425E6EB51004EE832 /* LocalDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDatabase.swift; sourceTree = "<group>"; };
 		625F48D825E6FA76004EE832 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		625F48DB25E71230004EE832 /* DiscDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscDetailViewController.swift; sourceTree = "<group>"; };
 		628A223125E8438D00EB7DFC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		628A223425E8498A00EB7DFC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		62DFA1B225E82D810019146D /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		62FD3A2825E9631000BC90F6 /* Bag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bag.swift; sourceTree = "<group>"; };
 		FF18FF6E94B306B33AD730D4 /* Pods_TestDiscDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestDiscDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -151,6 +163,9 @@
 				625F48DB25E71230004EE832 /* DiscDetailViewController.swift */,
 				628A223125E8438D00EB7DFC /* LoginViewController.swift */,
 				6209F71325E857D9009F41EE /* RegistrationViewController.swift */,
+				620E07D225E9ADED00879669 /* CreateNewBagViewController.swift */,
+				6248670B25EB42DA00CE503F /* TestingViewController.swift */,
+				6238DB6125EDDC05009FCEA7 /* SwitchBagTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -159,6 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				620B413025E47747002C355A /* Disc.swift */,
+				62FD3A2825E9631000BC90F6 /* Bag.swift */,
+				620E07BB25E9662B00879669 /* Rack.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -166,8 +183,9 @@
 		620B413325E4777D002C355A /* Model Controller */ = {
 			isa = PBXGroup;
 			children = (
-				620B413425E47790002C355A /* Bag.swift */,
+				620B413425E47790002C355A /* BagController.swift */,
 				625F48D425E6EB51004EE832 /* LocalDatabase.swift */,
+				620E07BF25E969A500879669 /* RackController.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -298,16 +316,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6238DB6225EDDC05009FCEA7 /* SwitchBagTableViewController.swift in Sources */,
 				628A223225E8438D00EB7DFC /* LoginViewController.swift in Sources */,
 				620B40E325E42347002C355A /* AppDelegate.swift in Sources */,
 				620B413125E47747002C355A /* Disc.swift in Sources */,
 				620B412525E433EB002C355A /* MyBagTableViewController.swift in Sources */,
+				620E07D325E9ADED00879669 /* CreateNewBagViewController.swift in Sources */,
 				620B412825E433F3002C355A /* DiscListTableViewController.swift in Sources */,
-				620B413525E47790002C355A /* Bag.swift in Sources */,
+				620B413525E47790002C355A /* BagController.swift in Sources */,
+				620E07C025E969A500879669 /* RackController.swift in Sources */,
+				620E07BC25E9662B00879669 /* Rack.swift in Sources */,
+				6248670C25EB42DA00CE503F /* TestingViewController.swift in Sources */,
 				625F48D925E6FA76004EE832 /* NetworkError.swift in Sources */,
 				628A223525E8498A00EB7DFC /* Extensions.swift in Sources */,
 				6209F71425E857D9009F41EE /* RegistrationViewController.swift in Sources */,
 				625F48D525E6EB51004EE832 /* LocalDatabase.swift in Sources */,
+				62FD3A2925E9631000BC90F6 /* Bag.swift in Sources */,
 				62DFA1B325E82D810019146D /* AuthManager.swift in Sources */,
 				6209F71A25E8959D009F41EE /* UserDatabaseManager.swift in Sources */,
 				625F48DC25E71230004EE832 /* DiscDetailViewController.swift in Sources */,
