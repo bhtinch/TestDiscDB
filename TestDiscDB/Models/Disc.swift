@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Disc: Codable {
+class Disc {
     let approvalDate: Date?
     let plastics: String
     let certNumber: String
@@ -30,9 +30,9 @@ class Disc: Codable {
     let speed: Int?
     let turn: Double?
     let type: String
-    let uuid: String
+    let uid: String
     
-    init(approvalDate: Date?, plastics: String, certNumber: String, modelClass: String, diameter: Double?, model: String, fade: Double?, flexibility: Double?, glide: Double?, height: Double?, inProduction: String, insideRimDia: Double?, linkURLString: String, make: String, maxWeight: Int?, rimConfig: Double?, rimDepth: Double?, rimDepthToDiaRatio: Double?, thickness: Double?, speed: Int?, turn: Double?, type: String, uuid: String) {
+    init(approvalDate: Date?, plastics: String, certNumber: String, modelClass: String, diameter: Double?, model: String, fade: Double?, flexibility: Double?, glide: Double?, height: Double?, inProduction: String, insideRimDia: Double?, linkURLString: String, make: String, maxWeight: Int?, rimConfig: Double?, rimDepth: Double?, rimDepthToDiaRatio: Double?, thickness: Double?, speed: Int?, turn: Double?, type: String, uid: String) {
         self.approvalDate = approvalDate
         self.plastics = plastics
         self.certNumber = certNumber
@@ -55,12 +55,12 @@ class Disc: Codable {
         self.speed = speed
         self.turn = turn
         self.type = type
-        self.uuid = uuid
+        self.uid = uid
     }
 }
 
 extension Disc: Equatable {
     static func == (lhs: Disc, rhs: Disc) -> Bool {
-        return lhs.uuid == rhs.uuid
+        return lhs.uid == rhs.uid
     }
 }

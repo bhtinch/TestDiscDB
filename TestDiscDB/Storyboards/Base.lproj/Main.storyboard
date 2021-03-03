@@ -356,7 +356,13 @@
                             <outlet property="delegate" destination="Dlb-LV-k3M" id="Jz8-dL-AR7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="FEh-Oa-PqC"/>
+                    <navigationItem key="navigationItem" id="FEh-Oa-PqC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="daY-y3-dQf">
+                            <connections>
+                                <action selector="addBagButtonTapped:" destination="Dlb-LV-k3M" id="lQe-hb-wPK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dhZ-gd-tya" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

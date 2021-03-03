@@ -20,19 +20,6 @@ class DiscListTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
-        
-        LocalDatabase.shared.loadFromPersistenceStore()
-        
-        if LocalDatabase.shared.localDatabase.isEmpty {
-            LocalDatabase.shared.syncDatabase { (result) in
-                switch result {
-                case .success(let message):
-                    print(message)
-                case .failure(let error):
-                    return print(error.localizedDescription)
-                }
-            }
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,15 +28,15 @@ class DiscListTableViewController: UITableViewController {
     
     //  MARK: - Actions
     @IBAction func syncButtonTapped(_ sender: Any) {
-        LocalDatabase.shared.syncDatabase { (result) in
-            switch result {
-            case .success(let message):
-                print(message)
-            case .failure(let error):
-                return print(error.localizedDescription)
-            }
-        }
-        self.tableView.reloadData()
+//        DiscDatabaseManager.shared.syncDatabase { (result) in
+//            switch result {
+//            case .success(let message):
+//                print(message)
+//            case .failure(let error):
+//                return print(error.localizedDescription)
+//            }
+//        }
+//        self.tableView.reloadData()
     }
     
     //  MARK: - Methods
@@ -57,14 +44,14 @@ class DiscListTableViewController: UITableViewController {
         print("Seraching for \"\(searchTerm)\"...")
         filteredDiscList = []
         
-        DispatchQueue.main.async {
-            for disc in LocalDatabase.shared.localDatabase {
-                if disc.model.localizedCaseInsensitiveContains(searchTerm) || disc.make.localizedCaseInsensitiveContains(searchTerm) {
-                    self.filteredDiscList.append(disc)
-                }
-            }
-            self.tableView.reloadData()
-        }
+//        DispatchQueue.main.async {
+//            for disc in DiscDatabaseManager.shared.database {
+//                if disc.model.localizedCaseInsensitiveContains(searchTerm) || disc.make.localizedCaseInsensitiveContains(searchTerm) {
+//                    self.filteredDiscList.append(disc)
+//                }
+//            }
+//            self.tableView.reloadData()
+//        }
     }
     
     func presentAddDiscAlertWith(disc: Disc) {

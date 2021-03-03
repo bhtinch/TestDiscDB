@@ -14,17 +14,33 @@ protocol SwitchBagTableViewDelegate: AnyObject {
 
 class SwitchBagTableViewController: UITableViewController {
 
+    //  MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         
         UserDatabaseManager.shared.database.keepSynced(true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         getBaglist()
     }
     
+    //  MARK: - Actions
+    @IBAction func addBagButtonTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "CreateNewBagViewController")
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
+    }
+    
+    //  MARK: - Properties
     var bags: [[String]] = []
     weak var delegate: SwitchBagTableViewDelegate?
     
+    //  MARK: - Methods
     func getBaglist() {
+        bags = []
         let pathString = "\(UserKeys.userID)/\(UserKeys.bags)"
         
         UserDatabaseManager.shared.database.child(pathString).observeSingleEvent(of: .value) { (snap) in

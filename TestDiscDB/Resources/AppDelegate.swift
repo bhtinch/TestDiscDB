@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         FirebaseDatabase.Database.database().isPersistenceEnabled = true
         FirebaseDatabase.Database.database(url: "https://testdiscdb-users-rtdb.firebaseio.com/").isPersistenceEnabled = true
+        UserDatabaseManager.shared.database.keepSynced(true)
+        DiscDatabaseManager.shared.database.keepSynced(true)
         return true
     }
 

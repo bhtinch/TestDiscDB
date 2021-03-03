@@ -14,7 +14,7 @@ class BagController {
     
     func createNewBagWith(name: String, brand: String?, model: String?, color: String?, isDefault: Bool) {
         
-        let bag = Bag(name: name, brand: brand, model: model, color: color)
+        let _ = Bag(name: name, brand: brand, model: model, color: color)
         
 //        if bags.count == 0 {
 //            bag.isDefault = true
@@ -39,7 +39,7 @@ class BagController {
 //
 //    func addDiscToBagWith(disc: Disc, bag: Bag) {
 //        bag.discs.append(disc)
-//        bag.discIDs.append(disc.uuid)
+//        bag.discIDs.append(disc.uid)
 //        UserDatabaseManager.shared.updateUserBagWith(bag: bag)
 //    }
 //

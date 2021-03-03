@@ -12,16 +12,17 @@ class MyBagTableViewController: UITableViewController {
     
     //  MARK: - Properties
     static let shared = MyBagTableViewController()
-    let userID = Auth.auth().currentUser?.uid ?? "No User"
+    var userID = Auth.auth().currentUser?.uid ?? "No User"
     var discs: [String] = []
     var discIDs: [String] = []
     
     //  MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Logged In UserID: \(userID)")
         handleNotAuthenticated()
         
-        BagManager.getBag { (result) in
+        BagManager.getDefaultBag { (result) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let bag):
@@ -53,14 +54,13 @@ class MyBagTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        UserDatabaseManager.shared.database.keepSynced(true)
     }
     
     
     //  MARK: - Actions
     @IBAction func logOutButtonTapped(_ sender: Any) {
         AuthManager.shared.logoutUser()
+        self.userID = "No User"
         self.handleNotAuthenticated()
     }
     
@@ -128,7 +128,7 @@ class MyBagTableViewController: UITableViewController {
 extension MyBagTableViewController: SwitchBagTableViewDelegate {
     func send(bagID: String) {
         print(bagID)
-        BagManager.updateBagWith(bagID: bagID) { (result) in
+        BagManager.getBagWith(bagID: bagID) { (result) in
             print(result)
             DispatchQueue.main.async {
                 switch result {

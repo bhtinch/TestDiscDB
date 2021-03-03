@@ -20,9 +20,9 @@ struct BagKeys {
 
 class BagManager {
     
-    static let database = Database.database(url: "https://testdiscdb-users-rtdb.firebaseio.com/").reference()
+    static let database = UserDatabaseManager.shared.database
     
-    static func getBag(completion: @escaping (Result<Bag, NetworkError>) -> Void) {
+    static func getDefaultBag(completion: @escaping (Result<Bag, NetworkError>) -> Void) {
         let pathString = "\(UserKeys.userID)/\(UserKeys.bags)"
         
         database.child(pathString).observeSingleEvent(of: .value) { (snapshot) in
@@ -75,7 +75,7 @@ class BagManager {
         }
     }
     
-    static func updateBagWith(bagID: String, completion: @escaping (Result<Bag, NetworkError>) -> Void) {
+    static func getBagWith(bagID: String, completion: @escaping (Result<Bag, NetworkError>) -> Void) {
         
         let pathString = "\(UserKeys.userID)/\(UserKeys.bags)/\(bagID)"
         print(pathString)
@@ -101,4 +101,22 @@ class BagManager {
         }
     }
     
+    static func createNewBagWith(name: String, brand: String, model: String, color: String, isDefault: Bool) {
+        let pathString = "\(UserKeys.userID)/\(UserKeys.bags)"
+                
+        database.child(pathString).childByAutoId().setValue([
+            BagKeys.name : name,
+            BagKeys.brand : brand,
+            BagKeys.model : model,
+            BagKeys.color : color,
+            BagKeys.isDefault : isDefault,
+            BagKeys.discIDs : [String]()
+        ]) { (error, dbRef) in
+            dbRef.observeSingleEvent(of: .value) { (snap) in
+                print(snap.key)
+            }
+        }
+        
+        //return bag
+    }
 }   //  End of Class
