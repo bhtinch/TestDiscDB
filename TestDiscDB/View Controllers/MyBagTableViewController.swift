@@ -15,6 +15,7 @@ class MyBagTableViewController: UITableViewController {
     var userID = Auth.auth().currentUser?.uid ?? "No User"
     var discs: [String] = []
     var discIDs: [String] = []
+    var bagID: String = "No Bag"
     
     //  MARK: - Lifecycle
     override func viewDidLoad() {
@@ -26,7 +27,9 @@ class MyBagTableViewController: UITableViewController {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let bag):
+                    print("success")
                     self.title = bag.name
+                    self.bagID = bag.uuidString
                     
                     self.discs = []
                     bag.discIDs.values.forEach {
@@ -55,7 +58,6 @@ class MyBagTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
-    
     
     //  MARK: - Actions
     @IBAction func logOutButtonTapped(_ sender: Any) {
@@ -111,8 +113,8 @@ class MyBagTableViewController: UITableViewController {
         }
         
         if segue.identifier == "toDiscListVC" {
-            //guard let destination = segue.destination as? DiscListTableViewController,
-                  //let bag = self.bagID else { return }
+            guard let destination = segue.destination as? DiscListTableViewController else { return }
+            destination.currentBagID = self.bagID
         }
         
         if segue.identifier == "toSwitchBagTVC" {
@@ -126,20 +128,22 @@ class MyBagTableViewController: UITableViewController {
 
 //  MARK: - Extensions
 extension MyBagTableViewController: SwitchBagTableViewDelegate {
-    func send(bagID: String) {
-        print(bagID)
+    func send(bagID: String, bagName: String) {
+        print("Selected Bag Name: \(bagName)")
+        print("Selected Bag ID: \(bagID)")
+        self.title = bagName
+        
         BagManager.getBagWith(bagID: bagID) { (result) in
             print(result)
             DispatchQueue.main.async {
                 switch result {
                 case .success(let bag):
-                    self.title = bag.name
+                    self.bagID = bag.uuidString
                     
                     self.discs = []
                     bag.discIDs.values.forEach {
                         self.discs.append($0)
                     }
-                    print(self.discs)
                     
                     self.discIDs = []
                     bag.discIDs.keys.forEach {
@@ -155,7 +159,6 @@ extension MyBagTableViewController: SwitchBagTableViewDelegate {
                     case .noData:
                         self.discs = ["No Discs Yet!"]
                         self.discIDs = [""]
-                        self.title = "(!!!!)"
                         self.tableView.reloadData()
                     }
                 }

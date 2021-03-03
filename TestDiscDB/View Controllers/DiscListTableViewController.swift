@@ -5,6 +5,7 @@
 //  Created by Benjamin Tincher on 2/22/21.
 //
 import UIKit
+import FirebaseDatabase
 
 class DiscListTableViewController: UITableViewController {
     
@@ -12,9 +13,10 @@ class DiscListTableViewController: UITableViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var syncButton: UIBarButtonItem!
     
-    private var filteredDiscList: [Disc] = []
+    var filteredDiscModelList: [String] = []
+    var filteredDiscBrandList: [String] = []
     
-    var currentBag: Bag?
+    var currentBagID: String?
     
     //  MARK: - Lifecycle
     override func viewDidLoad() {
@@ -25,33 +27,36 @@ class DiscListTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
-    
-    //  MARK: - Actions
-    @IBAction func syncButtonTapped(_ sender: Any) {
-//        DiscDatabaseManager.shared.syncDatabase { (result) in
-//            switch result {
-//            case .success(let message):
-//                print(message)
-//            case .failure(let error):
-//                return print(error.localizedDescription)
-//            }
-//        }
-//        self.tableView.reloadData()
-    }
-    
+        
     //  MARK: - Methods
+    /// Attempts to filter the entire disc database and return all discs that contain the searchTerm (case insensitive) in  'model' or 'Manufacturer Or Distributor'
     func filterDiscList(searchTerm: String) {
         print("Seraching for \"\(searchTerm)\"...")
-        filteredDiscList = []
+        filteredDiscModelList = []
+        filteredDiscBrandList = []
         
-//        DispatchQueue.main.async {
-//            for disc in DiscDatabaseManager.shared.database {
-//                if disc.model.localizedCaseInsensitiveContains(searchTerm) || disc.make.localizedCaseInsensitiveContains(searchTerm) {
-//                    self.filteredDiscList.append(disc)
-//                }
-//            }
-//            self.tableView.reloadData()
-//        }
+        DiscDatabaseManager.shared.database.observeSingleEvent(of: .value) { (snap) in
+            DispatchQueue.main.async {
+                for child in snap.children.allObjects {
+                    let childSnap = child as? DataSnapshot
+                    
+                    let discModel = childSnap?.childSnapshot(forPath: DiscKeys.model).value as? String ?? ""
+                    let discBrand = childSnap?.childSnapshot(forPath: DiscKeys.brand).value as? String ?? ""
+                    
+                    if discModel.localizedCaseInsensitiveContains(searchTerm) {
+                        self.filteredDiscModelList.append(discModel)
+                        self.filteredDiscBrandList.append(discBrand)
+                    }
+                    
+                    if discBrand.localizedCaseInsensitiveContains(searchTerm) {
+                        self.filteredDiscModelList.append(discModel)
+                        self.filteredDiscBrandList.append(discBrand)
+                    }
+                }
+                self.tableView.reloadData()
+            }
+            
+        }
     }
     
     func presentAddDiscAlertWith(disc: Disc) {
@@ -90,24 +95,24 @@ class DiscListTableViewController: UITableViewController {
     
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredDiscList.count
+        return filteredDiscModelList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "discCell", for: indexPath)
         
-        cell.textLabel?.text = self.filteredDiscList[indexPath.row].model
-        cell.detailTextLabel?.text = self.filteredDiscList[indexPath.row].make
+        cell.textLabel?.text = self.filteredDiscModelList[indexPath.row]
+        cell.detailTextLabel?.text = self.filteredDiscBrandList[indexPath.row]
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let disc = filteredDiscList[indexPath.row]
-        presentAddDiscAlertWith(disc: disc)
-        presentRemoveDiscsFromOtherBagsWith(disc: disc)
+        //let disc = filteredDiscList[indexPath.row]
+        //presentAddDiscAlertWith(disc: disc)
+        //presentRemoveDiscsFromOtherBagsWith(disc: disc)
     }
-}
+}   //  End of Class
 
 extension DiscListTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -118,7 +123,9 @@ extension DiscListTableViewController: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         print("Canceled Search.")
-        self.filteredDiscList = []
+        searchBar.text = ""
+        self.filteredDiscBrandList = []
+        self.filteredDiscModelList = []
         self.tableView.reloadData()
     }
-}
+}   //  End of Extension

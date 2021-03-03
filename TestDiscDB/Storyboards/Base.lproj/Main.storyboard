@@ -412,16 +412,9 @@
                             <outlet property="delegate" destination="duL-p5-GUP" id="w9I-QW-eJ2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="aoo-pI-HmR">
-                        <barButtonItem key="rightBarButtonItem" title="Sync Database" id="vGH-TY-2iM">
-                            <connections>
-                                <action selector="syncButtonTapped:" destination="duL-p5-GUP" id="0kg-R6-N2F"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="aoo-pI-HmR"/>
                     <connections>
                         <outlet property="searchBar" destination="bXm-w0-6wT" id="Y1U-3O-FfD"/>
-                        <outlet property="syncButton" destination="vGH-TY-2iM" id="Ywc-Si-mea"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q8u-76-ZVj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -9,7 +9,6 @@ import Foundation
 import FirebaseDatabase
 
 struct BagKeys {
-    static let bagID = "bagID"
     static let discIDs = "discs"
     static let name = "name"
     static let brand = "brand"
@@ -45,6 +44,7 @@ class BagManager {
                     guard let NSdiscIDs = childSnap.childSnapshot(forPath: BagKeys.discIDs).value as? NSDictionary else { return }
                     
                     let discIDs = NSdiscIDs as? Dictionary<String, String> ?? Dictionary()
+                    //let discIDs = [String : String]()
                     
                     let bag = Bag(name: name, brand: brand, model: model, color: color, discIDs: discIDs, isDefault: isDefault, uuidString: bagID)
                     return completion(.success(bag))

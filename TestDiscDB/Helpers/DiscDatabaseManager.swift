@@ -22,7 +22,7 @@ struct DiscKeys {
     static let inProdcution = "In Production"
     static let insideRimDia = "Inside Rim Diameter (cm)"
     static let link = "Link"
-    static let brand = "Manufacturer Or Distrbutor"
+    static let brand = "Manufacturer Or Distributor"
     static let maxWeight = "Max Weight (gr)"
     static let rimConfig = "Rim Configuration"
     static let rimDepth = "Rim Depth (cm)"

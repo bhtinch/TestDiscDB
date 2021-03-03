@@ -9,7 +9,7 @@ import UIKit
 import FirebaseDatabase
 
 protocol SwitchBagTableViewDelegate: AnyObject {
-    func send(bagID: String)
+    func send(bagID: String, bagName: String)
 }
 
 class SwitchBagTableViewController: UITableViewController {
@@ -76,8 +76,9 @@ class SwitchBagTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let bagName = self.bags[indexPath.row][0]
         let bagID = self.bags[indexPath.row][1]
-        delegate?.send(bagID: bagID)
+        delegate?.send(bagID: bagID, bagName: bagName)
         navigationController?.popViewController(animated: true)
     }
 
