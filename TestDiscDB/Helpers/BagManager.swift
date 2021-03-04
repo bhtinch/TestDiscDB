@@ -75,6 +75,7 @@ class BagManager {
     }
     
     static func getBagWith(bagID: String, completion: @escaping (Result<Bag, NetworkError>) -> Void) {
+        print("fetching bag with ID: \(bagID)...")
         
         let pathString = "\(UserKeys.userID)/\(UserKeys.bags)/\(bagID)"
         print(pathString)

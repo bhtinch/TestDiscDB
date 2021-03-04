@@ -40,6 +40,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="hPB-RG-cIZ" kind="show" identifier="toDiscDetailVC" id="Kdf-35-jEy"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -189,6 +192,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="4Ae-f4-SNf"/>
                     <connections>
+                        <outlet property="bagItButton" destination="Zhx-19-GVy" id="osK-r0-PUZ"/>
                         <outlet property="linkButton" destination="T45-sX-OtA" id="ebT-St-Y9X"/>
                     </connections>
                 </viewController>

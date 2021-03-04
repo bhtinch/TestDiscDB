@@ -78,9 +78,11 @@ class MyBagTableViewController: UITableViewController {
             
             switch result {
             case .success(let bag):
+                print("successfully fetched Bag with ID: \(bag.uuidString)")
                 self.bagID = bag.uuidString
                 
                 self.discIDs = []
+                print(self.discIDs)
                 bag.discIDs.keys.forEach {
                     self.discIDs.append($0)
                 }
@@ -101,6 +103,11 @@ class MyBagTableViewController: UITableViewController {
     
     func fetchDiscs() {
         self.discs = []
+        
+        if discIDs.isEmpty {
+            tableView.reloadData()
+            return
+        }
         
         for uid in discIDs {
             DiscDatabaseManager.shared.getDiscWith(uid: uid) { (result) in
@@ -153,11 +160,13 @@ class MyBagTableViewController: UITableViewController {
     
     //  MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "toDiscDetailVC" {
-//            guard let indexPath = tableView.indexPathForSelectedRow,
-//            let destination = segue.destination as? DiscDetailViewController,
-//            let bag = self.bagID else { return }
-//        }
+        if segue.identifier == "toDiscDetailVC" {
+            guard let indexPath = tableView.indexPathForSelectedRow,
+                  let destination = segue.destination as? DiscDetailViewController else { return }
+            destination.bagID = self.bagID
+            destination.selectedDisc = discs[indexPath.row]
+            destination.bagItButton.isHidden = true
+        }
         
         if segue.identifier == "toDiscListVC" {
             guard let destination = segue.destination as? DiscListTableViewController else { return }

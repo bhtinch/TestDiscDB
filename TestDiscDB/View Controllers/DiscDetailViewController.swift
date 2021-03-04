@@ -11,8 +11,9 @@ class DiscDetailViewController: UIViewController {
     
     //  MARK: - Properties
     @IBOutlet weak var linkButton: UIButton!
+    @IBOutlet weak var bagItButton: UIButton!
     
-    var currentBag: Bag?
+    var bagID: String = "No Bag."
     var selectedDisc: Disc? {
         didSet {
             configureView()
@@ -21,6 +22,8 @@ class DiscDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = .systemBackground
         
         guard let disc = selectedDisc else { return }
         
@@ -43,12 +46,11 @@ class DiscDetailViewController: UIViewController {
     
     @IBAction func bagItButtonTapped(_ sender: Any) {
         print("bagged")
-//        
-//        guard let disc = selectedDisc,
-//              let bag = currentBag else { return }
-//        BagController.shared.addDiscToBagWith(disc: disc, bag: bag)
-//
-//        self.dismiss(animated: true, completion: nil)
+        
+        guard let disc = selectedDisc else { return }
+        BagManager.addDiscWith(discID: disc.uid, discModel: disc.model, toBagWith: bagID)
+
+        self.dismiss(animated: true, completion: nil)
     }
     
     //  MARK: - Configure Views
@@ -60,7 +62,7 @@ class DiscDetailViewController: UIViewController {
         mainStack.axis = .vertical
         mainStack.alignment = .center
         mainStack.distribution = .equalSpacing
-        mainStack.frame = CGRect(x: 8, y: 48, width: view.frame.width-16, height: 200)
+        mainStack.frame = CGRect(x: 8, y: view.frame.height*0.2, width: view.frame.width-16, height: 200)
         view.addSubview(mainStack)
         
         let labelStack = UIStackView()

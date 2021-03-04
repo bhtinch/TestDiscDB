@@ -46,7 +46,8 @@ class DiscListTableViewController: UITableViewController {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             guard let controller = storyboard.instantiateViewController(withIdentifier: "DiscDetailViewController") as? DiscDetailViewController else { return }
             
-            //controller.selectedDisc = disc
+            controller.selectedDisc = disc
+            controller.bagID = self.currentBagID
 
             self.present(controller, animated: true, completion: nil)
         }
@@ -88,7 +89,7 @@ extension DiscListTableViewController: UISearchBarDelegate {
         print("Search button tapped...")
         
         guard let searchTerm = searchBar.text?.lowercased() else { return }
-        DiscDatabaseManager.shared.filterDiscs(searchTerm: searchTerm) { (discs) in
+        DiscDatabaseManager.shared.filterDiscsByMakeOrModelWith(searchTerm: searchTerm) { (discs) in
             DispatchQueue.main.async {
                 self.filteredDiscList = discs
                 self.tableView.reloadData()

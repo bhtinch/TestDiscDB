@@ -80,7 +80,7 @@ class DiscDatabaseManager {
     }
     
     /// Attempts to filter the entire disc database and return an array of Disc objects  that contain the searchTerm (case insensitive) in  'model' or 'Manufacturer Or Distributor'
-    func filterDiscs(searchTerm: String, completion: @escaping ([Disc]) -> Void) {
+    func filterDiscsByMakeOrModelWith(searchTerm: String, completion: @escaping ([Disc]) -> Void) {
         print("Seraching for \"\(searchTerm)\"...")
         searchResult = []
         
