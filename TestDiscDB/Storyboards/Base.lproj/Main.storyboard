@@ -40,9 +40,6 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="hPB-RG-cIZ" kind="presentation" identifier="toDiscDetailVC" id="euO-Qj-1NX"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -157,18 +154,18 @@
             <objects>
                 <viewController storyboardIdentifier="DiscDetailViewController" id="hPB-RG-cIZ" customClass="DiscDetailViewController" customModule="TestDiscDB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QbV-od-Sq5">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T45-sX-OtA">
-                                <rect key="frame" x="24" y="702" width="342" height="30"/>
+                                <rect key="frame" x="24" y="756" width="342" height="30"/>
                                 <state key="normal" title="Check It Out On InfiniteDiscs.com"/>
                                 <connections>
                                     <action selector="linkButtonTapped:" destination="hPB-RG-cIZ" eventType="touchUpInside" id="cVQ-xT-ZD6"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zhx-19-GVy">
-                                <rect key="frame" x="24" y="638" width="342" height="40"/>
+                                <rect key="frame" x="24" y="692" width="342" height="40"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                 <state key="normal" title="Bag it!">

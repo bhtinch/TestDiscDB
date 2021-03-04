@@ -18,7 +18,7 @@ class SwitchBagTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UserDatabaseManager.shared.database.keepSynced(true)
+        UserDatabaseManager.shared.dbRef.keepSynced(true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,7 +43,7 @@ class SwitchBagTableViewController: UITableViewController {
         bags = []
         let pathString = "\(UserKeys.userID)/\(UserKeys.bags)"
         
-        UserDatabaseManager.shared.database.child(pathString).observeSingleEvent(of: .value) { (snap) in
+        UserDatabaseManager.shared.dbRef.child(pathString).observeSingleEvent(of: .value) { (snap) in
             DispatchQueue.main.async {
                 for child in snap.children {
                     guard let childSnap = child as? DataSnapshot else { return }

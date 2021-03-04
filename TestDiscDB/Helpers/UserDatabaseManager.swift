@@ -19,7 +19,8 @@ struct UserKeys {
 
 class UserDatabaseManager {
     static let shared = UserDatabaseManager()
-    let database = Database.database(url: "https://testdiscdb-users-rtdb.firebaseio.com/").reference()
+    let database = Database.database(url: "https://testdiscdb-users-rtdb.firebaseio.com/")
+    let dbRef = Database.database(url: "https://testdiscdb-users-rtdb.firebaseio.com/").reference()
     
     //  MARK: - Methods
     
@@ -27,7 +28,7 @@ class UserDatabaseManager {
     func insertNewUserWith(userID: String, email: String, completion: @escaping (Bool) -> Void) {
         //  if user already exists, return
         
-        database.child(userID).setValue([
+        dbRef.child(userID).setValue([
             UserKeys.email : email,
             UserKeys.dateJoined : "\(Date())",
         ])
@@ -43,7 +44,7 @@ class UserDatabaseManager {
     /// Attempts to update the child data of the user object in the firebase User database; currently valid only for single level top level children
     func updateUserWith(key: String, value: Any) {
         guard let userID = Auth.auth().currentUser?.uid else { return }
-        database.child(userID).updateChildValues([key : value])
+        dbRef.child(userID).updateChildValues([key : value])
     }
     
 //    func updateUserBagWith(bag: Bag) {

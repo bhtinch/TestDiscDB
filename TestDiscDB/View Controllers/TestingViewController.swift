@@ -15,50 +15,31 @@ class TestingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        database.keepSynced(true)
         getData()
-        
     }
     
-    let database = Database.database(url: "https://testdiscdb-users-rtdb.firebaseio.com/").reference()
-    var bagID: String = "bagID1"
-    var userID: String = "0"
+    var bag: Bag?
+    var discs: [String] = []
     
     @IBAction func buttonTapped(_ sender: Any) {
         getData()
     }
     
     func getData() {
-        // ultimately will likely use ids to get USER, BAG, RACK, and/or DISCS
-        // so, the line code below will probably look like...
-        // let userID = Auth.auth().currentUser.uid
-        // var bagID: String? - landing pad for selected bag
-        // let pathString = "\(userID)/\(UserKeys.shared.bags)/\(bagID)"
-        // then grab all data from that bag using snap.childSnapshot(forPath: "name) as example
-        // then grab all discs and loop through to pass to an array... then can use array to populate TableView
+        let pathString = "\(UserKeys.userID)/\(UserKeys.bags)"
         
-        let bagPath = "\(userID)/bags/\(bagID)"
         
-        self.database.child(bagPath).observeSingleEvent(of: .value) { (snap) in
-                if self.userID == "0" {
-                    DispatchQueue.main.async {
-                    self.bagnNameLabel.text = snap.childSnapshot(forPath: "name").value as? String ?? ""
-                    self.discNameLabel.text = snap.childSnapshot(forPath: "discs").childSnapshot(forPath: "discID1").childSnapshot(forPath: "name").value as? String ?? ""
-                }
+        UserDatabaseManager.shared.dbRef.child(pathString).observeSingleEvent(of: .value) { (snap) in
+            print(snap.key)
+            for child in snap.children {
+                guard let childSnap = child as? DataSnapshot else { return }
+                let name = childSnap.childSnapshot(forPath: BagKeys.name).value as? String ?? ""
                 
-                if self.userID == "0" {
-                    DispatchQueue.main.async {
-                    self.discBrandLabel.text = snap.childSnapshot(forPath: "discs").childSnapshot(forPath: "discID1").childSnapshot(forPath: "color").value as? String ?? ""
-                }
+                self.discs.append(name)
             }
-            
-                if self.userID == "0" {
-                    DispatchQueue.main.async {
-                    self.bagnNameLabel.text = "cheese"
-                    }
-                }
-            }
+            self.discNameLabel.text = self.discs[1]
         }
     }
+    
     
 }   //  End of Class

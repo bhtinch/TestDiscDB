@@ -13,7 +13,7 @@ class MyBagTableViewController: UITableViewController {
     //  MARK: - Properties
     static let shared = MyBagTableViewController()
     var userID = Auth.auth().currentUser?.uid ?? "No User"
-    var discs: [String] = []
+    var discs: [Disc] = []
     var discIDs: [String] = []
     var bagID: String = "No Bag"
     
@@ -23,40 +23,13 @@ class MyBagTableViewController: UITableViewController {
         print("Logged In UserID: \(userID)")
         handleNotAuthenticated()
         
-        BagManager.getDefaultBag { (result) in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let bag):
-                    print("success")
-                    self.title = bag.name
-                    self.bagID = bag.uuidString
-                    
-                    self.discs = []
-                    bag.discIDs.values.forEach {
-                        self.discs.append($0)
-                    }
-                    
-                    self.discIDs = []
-                    bag.discIDs.keys.forEach {
-                        self.discIDs.append($0)
-                    }
-                    
-                    self.tableView.reloadData()
-                    
-                case .failure(let error):
-                    switch error {
-                    case .databaseError:
-                        print(error)
-                    case .noData:
-                        self.presentCreateBagAlert()
-                    }
-                }
-            }
-        }
+        fetchDefaultBag()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        print("viewWillAppear")
+        fetchBag(bagID: bagID)
     }
     
     //  MARK: - Actions
@@ -75,6 +48,79 @@ class MyBagTableViewController: UITableViewController {
         }
     }
     
+    func fetchDefaultBag() {
+        BagManager.getDefaultBag { (result) in
+            switch result {
+            case .success(let bag):
+                print("successfully fetched Bag with ID: \(bag.uuidString)")
+                self.title = bag.name
+                self.bagID = bag.uuidString
+                
+                self.discIDs = []
+                bag.discIDs.keys.forEach {
+                    self.discIDs.append($0)
+                }
+                self.fetchDiscs()
+                
+            case .failure(let error):
+                switch error {
+                case .databaseError:
+                    print(error)
+                case .noData:
+                    self.presentCreateBagAlert()
+                }
+            }
+        }
+    }
+    
+    func fetchBag(bagID: String) {
+        BagManager.getBagWith(bagID: bagID) { (result) in
+            
+            switch result {
+            case .success(let bag):
+                self.bagID = bag.uuidString
+                
+                self.discIDs = []
+                bag.discIDs.keys.forEach {
+                    self.discIDs.append($0)
+                }
+                
+                self.fetchDiscs()
+                
+            case .failure(let error):
+                switch error {
+                case .databaseError:
+                    print(error)
+                case .noData:
+                    self.discs = []
+                    self.tableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    func fetchDiscs() {
+        self.discs = []
+        
+        for uid in discIDs {
+            DiscDatabaseManager.shared.getDiscWith(uid: uid) { (result) in
+                switch result {
+                case .success(let disc):
+                    self.discs.append(disc)
+                    
+                    if uid == self.discIDs.last {
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    }
+                    
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
+    }
+    
     func presentCreateBagAlert() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "CreateNewBagViewController")
@@ -90,27 +136,28 @@ class MyBagTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "baggedDiscCell", for: indexPath)
         
-        cell.textLabel?.text = discs[indexPath.row]
-        cell.detailTextLabel?.text = discIDs[indexPath.row]
+        cell.textLabel?.text = discs[indexPath.row].model
+        cell.detailTextLabel?.text = discs[indexPath.row].make
         
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            //code
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            let discID = discIDs[indexPath.row]
+            BagManager.removeDiscWith(discID: discID, fromBagWith: bagID)
+            fetchBag(bagID: bagID)
         }
     }
     
     //  MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toDiscDetailVC" {
-            //guard let indexPath = tableView.indexPathForSelectedRow,
-                  //let destination = segue.destination as? DiscDetailViewController,
-                  //let bag = self.bagID else { return }
-        }
+//        if segue.identifier == "toDiscDetailVC" {
+//            guard let indexPath = tableView.indexPathForSelectedRow,
+//            let destination = segue.destination as? DiscDetailViewController,
+//            let bag = self.bagID else { return }
+//        }
         
         if segue.identifier == "toDiscListVC" {
             guard let destination = segue.destination as? DiscListTableViewController else { return }
@@ -132,37 +179,6 @@ extension MyBagTableViewController: SwitchBagTableViewDelegate {
         print("Selected Bag Name: \(bagName)")
         print("Selected Bag ID: \(bagID)")
         self.title = bagName
-        
-        BagManager.getBagWith(bagID: bagID) { (result) in
-            print(result)
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let bag):
-                    self.bagID = bag.uuidString
-                    
-                    self.discs = []
-                    bag.discIDs.values.forEach {
-                        self.discs.append($0)
-                    }
-                    
-                    self.discIDs = []
-                    bag.discIDs.keys.forEach {
-                        self.discIDs.append($0)
-                    }
-                    
-                    self.tableView.reloadData()
-                    
-                case .failure(let error):
-                    switch error {
-                    case .databaseError:
-                        print(error)
-                    case .noData:
-                        self.discs = ["No Discs Yet!"]
-                        self.discIDs = [""]
-                        self.tableView.reloadData()
-                    }
-                }
-            }
-        }
+        self.bagID = bagID
     }
 }

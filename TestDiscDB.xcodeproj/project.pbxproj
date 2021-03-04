@@ -164,8 +164,8 @@
 				628A223125E8438D00EB7DFC /* LoginViewController.swift */,
 				6209F71325E857D9009F41EE /* RegistrationViewController.swift */,
 				620E07D225E9ADED00879669 /* CreateNewBagViewController.swift */,
-				6248670B25EB42DA00CE503F /* TestingViewController.swift */,
 				6238DB6125EDDC05009FCEA7 /* SwitchBagTableViewController.swift */,
+				6248670B25EB42DA00CE503F /* TestingViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";

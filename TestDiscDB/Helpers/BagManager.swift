@@ -19,7 +19,7 @@ struct BagKeys {
 
 class BagManager {
     
-    static let database = UserDatabaseManager.shared.database
+    static let database = UserDatabaseManager.shared.dbRef
     
     static func getDefaultBag(completion: @escaping (Result<Bag, NetworkError>) -> Void) {
         let pathString = "\(UserKeys.userID)/\(UserKeys.bags)"
@@ -41,11 +41,10 @@ class BagManager {
                     let color = childSnap.childSnapshot(forPath: BagKeys.color).value as? String ?? ""
                     let isDefault = childSnap.childSnapshot(forPath: BagKeys.isDefault).value as? Bool ?? false
                     
-                    guard let NSdiscIDs = childSnap.childSnapshot(forPath: BagKeys.discIDs).value as? NSDictionary else { return }
+                    let NSdiscIDs = childSnap.childSnapshot(forPath: BagKeys.discIDs).value as? NSDictionary
                     
                     let discIDs = NSdiscIDs as? Dictionary<String, String> ?? Dictionary()
-                    //let discIDs = [String : String]()
-                    
+                                        
                     let bag = Bag(name: name, brand: brand, model: model, color: color, discIDs: discIDs, isDefault: isDefault, uuidString: bagID)
                     return completion(.success(bag))
                 }
@@ -63,7 +62,7 @@ class BagManager {
                     let model = childSnap.childSnapshot(forPath: BagKeys.model).value as? String ?? ""
                     let color = childSnap.childSnapshot(forPath: BagKeys.color).value as? String ?? ""
                     let isDefault = childSnap.childSnapshot(forPath: BagKeys.isDefault).value as? Bool ?? false
-                    guard let NSdiscIDs = childSnap.childSnapshot(forPath: BagKeys.discIDs).value as? NSDictionary else { return }
+                    let NSdiscIDs = childSnap.childSnapshot(forPath: BagKeys.discIDs).value as? NSDictionary
                     
                     let discIDs = NSdiscIDs as? Dictionary<String, String> ?? Dictionary()
                     
@@ -81,7 +80,7 @@ class BagManager {
         print(pathString)
         
         database.child(pathString).observeSingleEvent(of: .value) { (snap) in
-            if snap.childSnapshot(forPath: BagKeys.discIDs).exists() == false {
+            if snap.exists() == false {
                 return completion(.failure(NetworkError.noData))
             } else {
                 let bagID = snap.key as String
@@ -90,12 +89,12 @@ class BagManager {
                 let model = snap.childSnapshot(forPath: BagKeys.model).value as? String ?? ""
                 let color = snap.childSnapshot(forPath: BagKeys.color).value as? String ?? ""
                 let isDefault = snap.childSnapshot(forPath: BagKeys.isDefault).value as? Bool ?? false
-                guard let NSdiscIDs = snap.childSnapshot(forPath: BagKeys.discIDs).value as? NSDictionary else { return completion(.failure(NetworkError.databaseError))}
+                let NSdiscIDs = snap.childSnapshot(forPath: BagKeys.discIDs).value as? NSDictionary
                 
                 let discIDs = NSdiscIDs as? Dictionary<String, String> ?? Dictionary()
                 
                 let bag = Bag(name: name, brand: brand, model: model, color: color, discIDs: discIDs, isDefault: isDefault, uuidString: bagID)
-                
+                    
                 return completion(.success(bag))
             }
         }
@@ -119,4 +118,15 @@ class BagManager {
         
         //return bag
     }
+    
+    static func addDiscWith(discID: String, discModel: String, toBagWith bagID: String) {
+        let pathString = "\(UserKeys.userID)/\(UserKeys.bags)/\(bagID)/\(BagKeys.discIDs)"
+        database.child(pathString).updateChildValues([discID : discModel])
+    }
+    
+    static func removeDiscWith(discID: String, fromBagWith bagID: String) {
+        let path = "\(UserKeys.userID)/\(UserKeys.bags)/\(bagID)/\(BagKeys.discIDs)/\(discID)"
+        database.child(path).removeValue()
+    }
+    
 }   //  End of Class

@@ -37,12 +37,14 @@ struct DiscKeys {
 class DiscDatabaseManager {
     //  MARK: - Properties
     static let shared = DiscDatabaseManager()
-    let database = Database.database().reference()
+    let database = Database.database()
+    let dbRef = Database.database().reference()
+    var searchResult: [Disc] = []
     
     //  MARK: - Methods
     func getDiscWith(uid: String, completion: @escaping (Result<Disc, NetworkError>) -> Void) {
         
-        database.child(uid).observeSingleEvent(of: .value) { (snapshot) in
+        dbRef.child(uid).observeSingleEvent(of: .value) { (snapshot) in
             if snapshot.exists() == false {
                 return completion(.failure(NetworkError.noData))
             }
@@ -77,7 +79,35 @@ class DiscDatabaseManager {
         }
     }
     
-    func queryDiscsWith(brand: String?, model: String?) {
+    /// Attempts to filter the entire disc database and return an array of Disc objects  that contain the searchTerm (case insensitive) in  'model' or 'Manufacturer Or Distributor'
+    func filterDiscs(searchTerm: String, completion: @escaping ([Disc]) -> Void) {
+        print("Seraching for \"\(searchTerm)\"...")
+        searchResult = []
         
+        self.dbRef.observeSingleEvent(of: .value) { (snap) in
+            for child in snap.children.allObjects {
+                guard let childSnap = child as? DataSnapshot else { return }
+                
+                let discModel = childSnap.childSnapshot(forPath: DiscKeys.model).value as? String ?? ""
+                let discBrand = childSnap.childSnapshot(forPath: DiscKeys.brand).value as? String ?? ""
+                let discID = childSnap.key
+                
+                if discModel.localizedCaseInsensitiveContains(searchTerm) || discBrand.localizedCaseInsensitiveContains(searchTerm) {
+                    
+                    self.getDiscWith(uid: discID) { (result) in
+                        switch result {
+                        case .success(let disc):
+                            self.searchResult.append(disc)
+                        case .failure(_):
+                            print("cannot find disc")
+                        }
+                    }
+                }
+            }
+            DispatchQueue.main.async {
+                return completion(self.searchResult)
+            }
+        }
     }
-}   //  End of Class
+    
+}//  End of Class
