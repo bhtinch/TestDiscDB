@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>used to select media for posts and profiles</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>used to select photos for posts and profiles</string>
+	<key>NSCameraUsageDescription</key>
+	<string>used to select photos for posts and profiles</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -48,6 +54,7 @@
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
+		<string>still-camera</string>
 	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bdp-qD-zKB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ff6-lm-chD">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -118,34 +118,60 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSu-og-LnI">
-                                <rect key="frame" x="24" y="403" width="342" height="30"/>
+                                <rect key="frame" x="24" y="379" width="342" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="buttonTapped:" destination="ff6-lm-chD" eventType="touchUpInside" id="DnS-xW-hob"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tKe-2q-ue4">
+                                <rect key="frame" x="24" y="433" width="342" height="342"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="tKe-2q-ue4" secondAttribute="height" multiplier="1:1" id="v1J-7e-Quc"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Emv-9a-dhx">
+                                <rect key="frame" x="24" y="92" width="342" height="48"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="dyA-9Y-oBG"/>
+                                </constraints>
+                                <state key="normal" title="pick image">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="pickImageButtonTapped:" destination="ff6-lm-chD" eventType="touchUpInside" id="g1g-Vc-dQB"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="age-pt-BrI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Emv-9a-dhx" firstAttribute="top" secondItem="age-pt-BrI" secondAttribute="top" constant="48" id="4hD-K6-hyX"/>
                             <constraint firstItem="Ozf-e1-QCG" firstAttribute="top" secondItem="age-pt-BrI" secondAttribute="top" constant="200" id="6zf-BU-2Nc"/>
                             <constraint firstItem="age-pt-BrI" firstAttribute="trailing" secondItem="dSu-og-LnI" secondAttribute="trailing" constant="24" id="7MJ-fi-BNz"/>
-                            <constraint firstItem="dSu-og-LnI" firstAttribute="top" secondItem="eVc-rd-zNQ" secondAttribute="bottom" constant="48" id="7Ue-xb-MWr"/>
+                            <constraint firstItem="dSu-og-LnI" firstAttribute="top" secondItem="eVc-rd-zNQ" secondAttribute="bottom" constant="24" id="7Ue-xb-MWr"/>
                             <constraint firstItem="dSu-og-LnI" firstAttribute="leading" secondItem="age-pt-BrI" secondAttribute="leading" constant="24" id="7zo-SE-zle"/>
                             <constraint firstItem="gn9-Hl-LQV" firstAttribute="leading" secondItem="age-pt-BrI" secondAttribute="leading" constant="24" id="FaV-2S-0pm"/>
+                            <constraint firstItem="Emv-9a-dhx" firstAttribute="leading" secondItem="age-pt-BrI" secondAttribute="leading" constant="24" id="Fso-1O-fVC"/>
                             <constraint firstItem="age-pt-BrI" firstAttribute="trailing" secondItem="eVc-rd-zNQ" secondAttribute="trailing" constant="24" id="GiR-Tu-ACl"/>
                             <constraint firstItem="eVc-rd-zNQ" firstAttribute="top" secondItem="gn9-Hl-LQV" secondAttribute="bottom" constant="24" id="IJL-lc-Jrd"/>
                             <constraint firstItem="age-pt-BrI" firstAttribute="trailing" secondItem="Ozf-e1-QCG" secondAttribute="trailing" constant="24" id="JSk-aT-wrb"/>
                             <constraint firstItem="Ozf-e1-QCG" firstAttribute="leading" secondItem="age-pt-BrI" secondAttribute="leading" constant="24" id="M9E-56-4NQ"/>
                             <constraint firstItem="gn9-Hl-LQV" firstAttribute="top" secondItem="Ozf-e1-QCG" secondAttribute="bottom" constant="24" id="RtT-zn-TrD"/>
+                            <constraint firstItem="age-pt-BrI" firstAttribute="trailing" secondItem="Emv-9a-dhx" secondAttribute="trailing" constant="24" id="TvC-v7-uCe"/>
                             <constraint firstItem="eVc-rd-zNQ" firstAttribute="leading" secondItem="age-pt-BrI" secondAttribute="leading" constant="24" id="b8h-8A-FLD"/>
+                            <constraint firstItem="tKe-2q-ue4" firstAttribute="leading" secondItem="age-pt-BrI" secondAttribute="leading" constant="24" id="dxZ-iT-IgJ"/>
                             <constraint firstItem="age-pt-BrI" firstAttribute="trailing" secondItem="gn9-Hl-LQV" secondAttribute="trailing" constant="24" id="m4s-5J-wLN"/>
+                            <constraint firstItem="tKe-2q-ue4" firstAttribute="top" secondItem="dSu-og-LnI" secondAttribute="bottom" constant="24" id="sYx-IE-aLr"/>
+                            <constraint firstItem="age-pt-BrI" firstAttribute="trailing" secondItem="tKe-2q-ue4" secondAttribute="trailing" constant="24" id="yPO-bv-lD1"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="bagnNameLabel" destination="Ozf-e1-QCG" id="mWN-X3-pfR"/>
                         <outlet property="discBrandLabel" destination="eVc-rd-zNQ" id="kYk-Bj-eoa"/>
                         <outlet property="discNameLabel" destination="gn9-Hl-LQV" id="ca7-3d-cWU"/>
+                        <outlet property="imageView" destination="tKe-2q-ue4" id="Nbd-xg-tt2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vlv-xD-1Yg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -431,6 +457,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

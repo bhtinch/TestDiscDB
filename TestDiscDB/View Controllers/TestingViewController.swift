@@ -12,10 +12,15 @@ class TestingViewController: UIViewController {
     @IBOutlet weak var bagnNameLabel: UILabel!
     @IBOutlet weak var discNameLabel: UILabel!
     @IBOutlet weak var discBrandLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     var bag: Bag?
@@ -23,6 +28,12 @@ class TestingViewController: UIViewController {
     
     @IBAction func buttonTapped(_ sender: Any) {
         getData()
+    }
+    @IBAction func pickImageButtonTapped(_ sender: Any) {
+        let vc = ImagePickerViewController()
+        vc.modalPresentationStyle = .fullScreen
+        vc.delegate = self
+        present(vc, animated: true, completion: nil)
     }
     
     func getData() {
@@ -43,3 +54,14 @@ class TestingViewController: UIViewController {
     
     
 }   //  End of Class
+
+extension TestingViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[.originalImage] as? UIImage {
+            self.imageView.image = image
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+}
