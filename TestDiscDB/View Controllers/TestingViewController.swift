@@ -6,6 +6,7 @@
 //
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
 import UIKit
 
 class TestingViewController: UIViewController {
@@ -13,6 +14,8 @@ class TestingViewController: UIViewController {
     @IBOutlet weak var discNameLabel: UILabel!
     @IBOutlet weak var discBrandLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    
+    let storeRef = Storage.storage().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +63,9 @@ extension TestingViewController: UIImagePickerControllerDelegate, UINavigationCo
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage {
             self.imageView.image = image
+            if let jpegData = image.jpegData(compressionQuality: 1) {
+                self.storeRef.child(Auth.auth().currentUser?.uid ?? "user").child("pic1").putData(jpegData)
+            }
         }
         picker.dismiss(animated: true, completion: nil)
     }
